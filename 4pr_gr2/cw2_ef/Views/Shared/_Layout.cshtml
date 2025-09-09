@@ -13,16 +13,19 @@
 </head>
 
 <body>
-    <header>
+    <div class="container">
+        <header></header>
         <nav class="d-flex gap-5">
-            <a asp-action="Index" asp-controller="Home">Zbiór książek</a>
-            <a asp-action="Editors" asp-controller="Home">Lista wydawców</a>
+            <div><a asp-action="Index" asp-controller="Home">Zbiór książek</a></div>
+            <div><a asp-action="Editors" asp-controller="Home">Lista wydawców</a></div>
         </nav>
-    </header>
-    <main>
-        @RenderBody()
-    </main>
-    <footer></footer>
+        </header>
+        <main>
+            @RenderBody()
+        </main>
+        <footer></footer>
+    </div>
+
 </body>
 
 </html>
