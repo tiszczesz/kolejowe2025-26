@@ -28,6 +28,23 @@ namespace cw2_ef.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+        public IActionResult Editors()
+        {
+            var editors = _context.Editors.ToList();
+            return View(editors);
+        }
+        [HttpGet]
+        public IActionResult AddEditor()
+        {
+            //wyswietlenie formularza
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddEditor(Editor editor)
+        {
+            //zapisanie do bazy danych
+            return View();
+        }
 
     }
 }
