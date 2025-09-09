@@ -43,7 +43,7 @@ namespace cw2_ef.Controllers
         public IActionResult AddEditor(Editor editor)
         {
             //zapisanie do bazy danych
-            return View();
+            return RedirectToAction(nameof(Editors));
         }
 
     }
