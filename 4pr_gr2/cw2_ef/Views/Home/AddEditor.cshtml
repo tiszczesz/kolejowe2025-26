@@ -1,0 +1,13 @@
+﻿@model cw2_ef.Models.Editor
+<h3>Dodawanie nowego wydawcy</h3>
+<form asp-action="AddEditor" method="post">
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input type="text" class="form-control" id="Name" asp-for="Name" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Address" class="form-label"></label>
+        <input type="text" class="form-control" id="Address" asp-for="Address" />
+    </div>
+    <button type="submit" class="btn btn-primary">Dodaj</button>
+</form>

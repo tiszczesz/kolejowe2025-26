@@ -42,7 +42,12 @@ namespace cw2_ef.Controllers
         [HttpPost]
         public IActionResult AddEditor(Editor editor)
         {
-            //zapisanie do bazy danych
+            if (!ModelState.IsValid)
+            {
+                return View(editor);
+            }
+            _context.Editors.Add(editor);            
+            _context.SaveChanges();
             return RedirectToAction(nameof(Editors));
         }
 
