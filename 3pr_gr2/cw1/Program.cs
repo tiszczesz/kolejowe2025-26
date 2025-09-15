@@ -40,8 +40,7 @@ void ex3()
         Console.WriteLine($"{number1} * {number2} = {number1 * number2}");
         Console.WriteLine($"{number1} / {number2} = "
         + (number2 != 0 ? $"{(double)number1 / number2}" : "Nie dziel przez 0!"));
-
-    }
+}
     catch (FormatException ex)
     {
         Console.WriteLine("Bledne dane wejsciowe: " + ex.Message);
