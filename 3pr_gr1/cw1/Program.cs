@@ -53,4 +53,50 @@ void ex3()
         Console.WriteLine("Bledny format liczby: " + e.Message);
     }
 }
-void zad1() { }
+void zad1()
+{
+    try
+    {
+        Console.Write("Pdaj pierwsza liczbe: ");
+        int a = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Podaj druga liczbe: ");
+        int b = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Wybierz dzialanie (+, -, *, /): ");
+        string? dzialanie = Console.ReadLine()?.Trim();
+        dzialanie = dzialanie?.Length > 0 ? dzialanie[0].ToString() : "";
+        if (string.IsNullOrEmpty(dzialanie))
+        {
+            Console.WriteLine("Nie podano dzialania");
+            return;
+        }
+        switch (dzialanie)
+        {
+            case "+":
+                Console.WriteLine($"{a} + {b} = {a + b}");
+                break;
+            case "-":
+                Console.WriteLine($"{a} - {b} = {a - b}");
+                break;
+            case "*":
+                Console.WriteLine($"{a} * {b} = {a * b}");
+                break;
+            case "/":
+                if (b == 0)
+                {
+                    Console.WriteLine("Nie dzielimy przez zero");
+                }
+                else
+                {
+                    Console.WriteLine($"{a} / {b} = {(double)a / b}");
+                }
+                break;
+            default:
+                Console.WriteLine("Nieznane dzialanie");
+                break;
+        }
+    }
+    catch (FormatException e)
+    {
+        Console.WriteLine("Bledny format liczby: " + e.Message);
+    }
+}
