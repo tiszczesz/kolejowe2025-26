@@ -1,0 +1,14 @@
+﻿@model Editor
+<h3>Edycja wydawcy</h3>
+<form asp-action="EditEditor" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input type="text" class="form-control" id="Name" asp-for="Name" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Address" class="form-label"></label>
+        <input type="text" class="form-control" id="Address" asp-for="Address" />
+    </div>
+    <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+</form>

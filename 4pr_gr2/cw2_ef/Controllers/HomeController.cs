@@ -46,10 +46,46 @@ namespace cw2_ef.Controllers
             {
                 return View(editor);
             }
-            _context.Editors.Add(editor);            
+            _context.Editors.Add(editor);
             _context.SaveChanges();
             return RedirectToAction(nameof(Editors));
         }
+
+
+        public IActionResult DeleteEditor(int? id)
+        {
+            var toDelete = _context.Editors.FirstOrDefault(e => e.Id == id);
+            if (toDelete != null)
+            {
+
+                _context.Editors.Remove(toDelete);
+
+
+                _context.SaveChanges();
+            }
+            return RedirectToAction(nameof(Editors));
+        }
+        [HttpGet]
+        public IActionResult EditEditor(int? id)
+        {
+            var toEdit = _context.Editors.FirstOrDefault(e => e.Id == id);
+            if (toEdit != null)
+            {
+                return View(toEdit);
+            }
+            return RedirectToAction(nameof(Editors));
+        }
+        [HttpPost]
+        public IActionResult EditEditor(Editor editor)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Editors.Update(editor);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Editors));
+            }
+           return View(editor);
+         }
 
     }
 }
