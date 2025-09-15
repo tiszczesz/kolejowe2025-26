@@ -9,6 +9,7 @@ public class BooksContext : DbContext
         : base(options)
     { }
     public DbSet<Book> Books { get; set; }
+    public DbSet<Editor> Editors { get; set; }
     //dodanie startowych danych
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -35,6 +36,32 @@ public class BooksContext : DbContext
                 Title = "Hobbit, czyli tam i z powrotem",
                 Author = "J.R.R. Tolkien",
                 PublishedDate = new DateTime(1937, 9, 21)
+            }
+        );
+        modelBuilder.Entity<Editor>().HasData(
+            new Editor
+            {
+                Id = 1,
+                Name = "Appress",
+                Address = "ul. Wookkk, Kraków 31-161"
+            },
+            new Editor
+            {
+                Id = 2,
+                Name = "Trrrrr",
+                Address = "ul. Wookkk, Kraków 31-161"
+            },
+            new Editor
+            {
+                Id = 3,
+                Name = "Rainbow",
+                Address = "ul. Wookkk, Kraków 31-161"
+            },
+            new Editor
+            {
+                Id = 4,
+                Name = "Feryk",
+                Address = "ul. Zygmunta, Kraków 31-161"
             }
         );
     }

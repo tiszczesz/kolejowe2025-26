@@ -1,0 +1,12 @@
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllersWithViews();
+var app = builder.Build();
+app.UseStaticFiles();
+
+//app.MapGet("/", () => "Hello World!");
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=mycars}/{action=getall}/{id?}"
+);
+//app.MapDefaultControllerRoute();
+app.Run();

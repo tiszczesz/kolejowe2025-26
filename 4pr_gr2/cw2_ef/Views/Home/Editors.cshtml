@@ -1,0 +1,25 @@
+﻿@model List<Editor>
+<h3>Lista wydawców</h3>
+<table class="table table-striped">
+    <thead>
+        <th>Lp</th>
+        <th>Nazwa</th>
+        <th>Adres</th>
+        <th> ----- </th>
+    </thead>
+    <tbody>
+        @{int lp = 0;}
+        @foreach(var ed in Model){
+            lp++;
+            <tr>
+                <td>@lp</td>
+                <td>@ed.Name</td>
+                <td>@ed.Address</td>
+                <td>
+                    <a asp-action="EditEditor" asp-route-id="@ed.Id" class="btn btn-warning">Edytuj</a>
+                    <a asp-action="DeleteEditor" asp-route-id="@ed.Id" class="btn btn-danger">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
