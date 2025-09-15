@@ -6,6 +6,7 @@ app.UseStaticFiles();
 //app.MapGet("/", () => "Hello World!");
 app.MapControllerRoute(
     name: "default",
-    pattern: "{MyCars}/{GetAll}/{id?}"
+    pattern: "{controller=mycars}/{action=getall}/{id?}"
 );
+//app.MapDefaultControllerRoute();
 app.Run();
