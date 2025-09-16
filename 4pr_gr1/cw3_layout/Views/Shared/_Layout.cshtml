@@ -18,8 +18,13 @@
         <nav>
             <ul>
                 <li>
-                    <a asp-action="GetAll" asp-controller="MyCar">
+                    <a asp-action="GetAll" asp-controller="MyCars">
                         Lista samochodów
+                    </a>
+                </li>
+                <li>
+                    <a asp-action="Contact" asp-controller="MyCars">
+                        Kontakt
                     </a>
                 </li>
             </ul>
@@ -28,7 +33,9 @@
     <main class="container">
         @RenderBody()
     </main>
-    <footer></footer>
+    <footer>
+    Rok: @DateTime.Now.Year
+    </footer>
 </body>
-
+<script src="~/script.js" defer></script>
 </html>
