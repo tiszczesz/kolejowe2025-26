@@ -4,7 +4,7 @@ namespace cw3_layout.Controllers
 {
     public class MyCarsController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Contact()
         {
             return View();
         }
