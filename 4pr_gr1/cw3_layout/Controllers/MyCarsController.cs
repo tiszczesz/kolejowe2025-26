@@ -1,3 +1,4 @@
+using cw3_layout.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace cw3_layout.Controllers
@@ -11,7 +12,9 @@ namespace cw3_layout.Controllers
         // GET: MyCarsController
         public ActionResult GetAll()
         {
-            return View();
+            var carsRepo = new CarsRepo();
+            var cars = carsRepo.Cars;
+            return View(cars);
         }
 
     }

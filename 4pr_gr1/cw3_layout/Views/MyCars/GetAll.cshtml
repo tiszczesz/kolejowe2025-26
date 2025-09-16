@@ -1,3 +1,23 @@
-﻿<h1>
+﻿@model List<Car>
+<h1>
     My Cars - Get All
 </h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Year</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach(var c in Model)
+    {
+        <tr>
+            <td>@c.Brand</td>
+            <td>@c.Model</td>
+            <td>@c.Year</td>
+        </tr>
+    }
+    </tbody>
+</table>
