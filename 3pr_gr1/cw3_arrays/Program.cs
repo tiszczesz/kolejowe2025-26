@@ -23,11 +23,11 @@ void ex1()
 
     Console.WriteLine();
 }
-ex2();
+//ex2();
 void ex2()
 {
     //tablice wielowymiarowe
-    //tablice 2D
+    //tablice 2D prostokatne
     int[,] table = new int[3, 4]; //3 wiersze 4 kolumny
     int rows = table.GetLength(0); //3
     int cols = table.GetLength(1); //4
@@ -47,3 +47,12 @@ void ex2()
         Console.WriteLine();
     }
  }
+ex3();
+void ex3()
+{
+    //tablice tablic
+    int[][] table = new int[3][]; //tablica 3 elementowa tablic
+    table[0] = new int[2]; //2 elementy
+    table[1] = new int[5]; //5 elementow
+    table[2] = new int[3]; //3 elementy
+}
