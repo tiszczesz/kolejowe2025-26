@@ -17,14 +17,15 @@ namespace cw3_layout.Controllers
             var cars = _carsRepo.Cars;
             return View(cars);
         }
+        [HttpGet]
         public IActionResult AddCar()
         {
-            var car = new Car
-            {
-                Brand = "Trabant",
-                Model = "Trabant 601",
-                Year = 2020
-            };
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddCar(Car car)
+        {
+
             _carsRepo = new FileCarsRepo();
             _carsRepo.AddCar(car);
             return RedirectToAction("GetAll");

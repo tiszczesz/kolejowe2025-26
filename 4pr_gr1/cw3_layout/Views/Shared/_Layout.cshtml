@@ -23,8 +23,8 @@
                     </a>
                 </li>
                 <li>
-                    <a asp-action="Contact" asp-controller="MyCars">
-                        Kontakt
+                    <a asp-action="AddCar" asp-controller="MyCars">
+                        Nowy samochód
                     </a>
                 </li>
             </ul>
@@ -34,8 +34,9 @@
         @RenderBody()
     </main>
     <footer>
-    Rok: @DateTime.Now.Year
+        Rok: @DateTime.Now.Year
     </footer>
 </body>
 <script src="~/script.js" defer></script>
+
 </html>
