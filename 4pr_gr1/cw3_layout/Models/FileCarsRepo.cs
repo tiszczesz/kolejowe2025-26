@@ -9,7 +9,7 @@ public class FileCarsRepo : ICarsRepo
     private List<Car> _cars;
     private void LoadCarsFromFile()
     {
-        if(!File.Exists(filePath))
+        if (!File.Exists(filePath))
         {
             _cars = new List<Car>();
             return;
@@ -27,7 +27,10 @@ public class FileCarsRepo : ICarsRepo
 
     public void AddCar(Car car)
     {
-        throw new NotImplementedException();
+        car.Id = GetNextId();
+        Cars.Add(car);
+        var json = JsonSerializer.Serialize(Cars);
+        File.WriteAllText(filePath, json);
     }
 
     public List<Car> GetAllCars()
@@ -43,5 +46,10 @@ public class FileCarsRepo : ICarsRepo
     public void RemoveCar(int id)
     {
         throw new NotImplementedException();
+    }
+    private int GetNextId()
+    {
+        if (Cars.Count == 0) return 1;
+        return Cars.Max(c => c.Id) + 1;
     }
 }
