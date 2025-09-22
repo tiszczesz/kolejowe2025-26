@@ -1,10 +1,29 @@
 using System;
+using System.Text.Json;
 
 namespace cw3_layout.Models;
 
 public class FileCarsRepo : ICarsRepo
 {
-    public List<Car> Cars { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    private readonly string filePath = "cars.json";
+    private List<Car> _cars;
+    private void LoadCarsFromFile()
+    {
+        if(!File.Exists(filePath))
+        {
+            _cars = new List<Car>();
+            return;
+        }
+        var result = File.ReadAllText(filePath);
+        _cars = JsonSerializer.Deserialize<List<Car>>(result)
+            ?? new List<Car>();
+    }
+    public FileCarsRepo()
+    {
+        LoadCarsFromFile();
+        Cars = _cars;
+    }
+    public List<Car> Cars { get; set; }
 
     public void AddCar(Car car)
     {
@@ -13,7 +32,7 @@ public class FileCarsRepo : ICarsRepo
 
     public List<Car> GetAllCars()
     {
-        throw new NotImplementedException();
+        return Cars;
     }
 
     public Car? GetCar(int id)
