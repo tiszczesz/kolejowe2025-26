@@ -8,12 +8,12 @@ void ex1()
     }
     Console.WriteLine();
 }
-ex2();
+//ex2();
 void ex2()
 {
     //petla while
     //oblicza sume liczb losowych az przekroczy 100
-    int sum = 0;
+    int sum = 100;
     int counter = 0;
     int minValue = int.MaxValue;
     int maxValue = int.MinValue;
@@ -39,4 +39,17 @@ void ex2()
         Console.WriteLine("Nie wylosowano zadnej liczby");
     }
 
+}
+ex3();
+void ex3()
+{
+    //petla do while
+    //podaj nazwe uzytkownika slowem "exit" konczy program
+    string? userName;
+    do
+    {
+        Console.Write("Podaj nazwe uzytkownika (exit konczy): ");
+        userName = Console.ReadLine();
+
+    } while ((userName?.Trim().ToLower()) != "exit");
 }
