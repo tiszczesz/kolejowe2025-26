@@ -12,7 +12,7 @@ namespace cw3_layout.Controllers
         // GET: MyCarsController
         public ActionResult GetAll()
         {
-            var carsRepo = new FakeCarsRepo();
+            ICarsRepo carsRepo = new FakeCarsRepo();
             var cars = carsRepo.Cars;
             return View(cars);
         }
