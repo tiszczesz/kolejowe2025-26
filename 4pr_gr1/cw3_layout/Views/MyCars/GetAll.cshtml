@@ -23,7 +23,7 @@
             <td>@c.Model</td>
             <td>@c.Year</td>
             <td>
-            <a asp-action="DeleteCar" class="btn btn-danger">Usuń</a>
+            <a asp-action="DeleteCar" asp-route-id="c.Id" class="btn btn-danger">Usuń</a>
             </td>
         </tr>
     }
