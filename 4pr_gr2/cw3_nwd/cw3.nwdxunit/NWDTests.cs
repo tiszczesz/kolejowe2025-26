@@ -63,11 +63,12 @@ public class NWDTests
         //arrange
         int a = 0;
         int b = 0;
-        int expected = 0;
+        
         //act
         var nwd = new cw3.nwdclasslib.Nwd();
-        int result = nwd.Calculate(a, b);
+        Assert.Throws<ArgumentException>(() => nwd.Calculate(a, b));
+        
         //assert
-        Assert.Equal(expected, result);
+        
     }
 }
