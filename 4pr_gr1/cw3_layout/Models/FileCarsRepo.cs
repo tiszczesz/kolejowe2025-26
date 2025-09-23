@@ -63,4 +63,16 @@ public class FileCarsRepo : ICarsRepo
         if (Cars.Count == 0) return 1;
         return Cars.Max(c => c.Id) + 1;
     }
+
+    public void UpdateCar(Car car)
+    {
+        var carToUpdate = GetCar(car.Id);
+        if(carToUpdate != null)
+        {
+            carToUpdate.Brand = car.Brand;
+            carToUpdate.Model = car.Model;
+            carToUpdate.Year = car.Year;
+            SaveToFile();
+        }
+    }
 }

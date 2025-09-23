@@ -53,7 +53,12 @@ namespace cw3_layout.Controllers
         [HttpPost]
         public IActionResult EditCar(Car car)
         {
-            //todo
+            if (ModelState.IsValid)
+            {
+                var _carsRepo = new FileCarsRepo();
+                _carsRepo.UpdateCar(car);
+                return RedirectToAction("GetAll");
+            }
             return View();
         }
 

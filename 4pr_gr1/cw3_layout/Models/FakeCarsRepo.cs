@@ -38,4 +38,9 @@ public class FakeCarsRepo : ICarsRepo
     {
         throw new NotImplementedException();
     }
+
+    public void UpdateCar(Car car)
+    {
+        throw new NotImplementedException();
+    }
 }
