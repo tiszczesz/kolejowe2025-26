@@ -33,6 +33,22 @@ namespace cw3_layout.Controllers
             }
             return View();
         }
+        public IActionResult DeleteCar(int id)
+        {
+            return View();
+        }
+        [HttpGet]
+        public IActionResult EditCar(int id)
+        {
+            //todo
+            return View();
+        }
+        [HttpPost]
+        public IActionResult EditCar(Car car)
+        {
+            //todo
+            return View();
+        }
 
     }
 }

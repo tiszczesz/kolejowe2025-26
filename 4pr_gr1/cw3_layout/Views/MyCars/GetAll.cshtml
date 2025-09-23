@@ -12,6 +12,7 @@
             <th>Brand</th>
             <th>Model</th>
             <th>Year</th>
+            <th> ---- </th>
         </tr>
     </thead>
     <tbody>
@@ -21,6 +22,9 @@
             <td>@c.Brand</td>
             <td>@c.Model</td>
             <td>@c.Year</td>
+            <td>
+            <a asp-action="DeleteCar" class="btn btn-danger">Usuń</a>
+            </td>
         </tr>
     }
     </tbody>
