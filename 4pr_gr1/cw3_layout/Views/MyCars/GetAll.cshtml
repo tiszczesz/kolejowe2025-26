@@ -1,6 +1,6 @@
 ﻿@model List<Car>
 @{
-    int i =0;
+    int i = 0;
     i++;
 }
 <h1>
@@ -16,16 +16,17 @@
         </tr>
     </thead>
     <tbody>
-    @foreach(var c in Model)
-    {
-        <tr>
-            <td>@c.Brand</td>
-            <td>@c.Model</td>
-            <td>@c.Year</td>
-            <td>
-            <a asp-action="DeleteCar" asp-route-id="c.Id" class="btn btn-danger">Usuń</a>
-            </td>
-        </tr>
-    }
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.Brand</td>
+                <td>@c.Model</td>
+                <td>@c.Year</td>
+                <td>
+                    <a asp-action="DeleteCar" asp-route-id="@c.Id" class="btn btn-danger">Usuń</a>
+                    <a asp-action="EditCar" asp-route-id="@c.Id" class="btn btn-secondary">Edytuj</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

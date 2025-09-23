@@ -35,13 +35,20 @@ namespace cw3_layout.Controllers
         }
         public IActionResult DeleteCar(int id)
         {
-            return View();
+            var _carsRepo = new FileCarsRepo();
+            _carsRepo.RemoveCar(id);
+            return RedirectToAction("GetAll");
         }
         [HttpGet]
         public IActionResult EditCar(int id)
         {
-            //todo
-            return View();
+            var _carsRepo = new FileCarsRepo();
+            var carToEdit = _carsRepo.GetCar(id);
+            if(carToEdit != null)
+            {
+                return View(carToEdit);
+            }   
+            return RedirectToAction("GetAll");
         }
         [HttpPost]
         public IActionResult EditCar(Car car)

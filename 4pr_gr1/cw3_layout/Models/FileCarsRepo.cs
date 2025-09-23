@@ -29,6 +29,11 @@ public class FileCarsRepo : ICarsRepo
     {
         car.Id = GetNextId();
         Cars.Add(car);
+        SaveToFile();
+    }
+
+    private void SaveToFile()
+    {
         var json = JsonSerializer.Serialize(Cars);
         File.WriteAllText(filePath, json);
     }
@@ -40,12 +45,18 @@ public class FileCarsRepo : ICarsRepo
 
     public Car? GetCar(int id)
     {
-        throw new NotImplementedException();
+        return Cars.FirstOrDefault(c => c.Id == id);
     }
 
     public void RemoveCar(int id)
     {
-        throw new NotImplementedException();
+        Car? carToRemove = Cars.FirstOrDefault(c => c.Id == id);
+        if (carToRemove != null)
+        {
+            Cars.Remove(carToRemove);
+            SaveToFile();
+        }
+        
     }
     private int GetNextId()
     {
