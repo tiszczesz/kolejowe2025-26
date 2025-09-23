@@ -25,10 +25,13 @@ namespace cw3_layout.Controllers
         [HttpPost]
         public IActionResult AddCar(Car car)
         {
-
-            _carsRepo = new FileCarsRepo();
-            _carsRepo.AddCar(car);
-            return RedirectToAction("GetAll");
+            if (ModelState.IsValid)
+            {
+                _carsRepo = new FileCarsRepo();
+                _carsRepo.AddCar(car);
+                return RedirectToAction("GetAll");
+            }
+            return View();
         }
 
     }

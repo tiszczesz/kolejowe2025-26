@@ -3,8 +3,23 @@
 <h1>Dodawanie nowego samochodu</h1>
 <form asp-action="AddCar" method="post">
     <div class="row m-2">
-        <label class="col-3" asp-for="Brand"></label>
+        <label class="col-3 text-end" asp-for="Brand"></label>
         <input asp-for="Brand" class="col-6" />
         <span asp-validation-for="Brand" class="col-3 text-danger"></span>
     </div>
+    <div class="row m-2">
+        <label class="col-3 text-end" asp-for="Model"></label>
+        <input asp-for="Model" class="col-6" />
+        <span asp-validation-for="Model" class="col-3 text-danger"></span>
+    </div>
+    <div class="row m-2">
+        <label class="col-3 text-end" asp-for="Year"></label>
+        <input asp-for="Year" class="col-6" />
+        <span asp-validation-for="Year" class="col-3 text-danger"></span>
+    </div>
+    <div class="row m-2">
+        <div class="col-3"></div>
+        <input type="submit" class="btn btn-primary m-2 col-6" value="Dodaj samochód" />
+    </div>
+
 </form>
