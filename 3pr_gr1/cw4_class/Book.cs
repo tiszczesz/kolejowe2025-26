@@ -43,5 +43,9 @@ public class Book
             year = (value < 0) ? 0 : value;
         }
     }
+    public void ShowInfo()
+    {
+        Console.WriteLine($"Title: {Title}, Author: {Author}, Year: {year} (Digital: {isDigital})");
+    }
     //todo other properties
 }
