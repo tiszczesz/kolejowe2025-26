@@ -5,18 +5,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IRepo, SqlRepo>();
 var app = builder.Build();
 //pobieram z kontenera DI implementacje IRepo
-var repo = app.Services.GetRequiredService<IRepo>();
+//var repo = app.Services.GetRequiredService<IRepo>();
 
 app.MapGet("/", () => "Hello World!");
-app.MapGet("/students", () => repo.GetAll());
-app.MapGet("/students/{id}", (int id) =>
-{
-    var student = repo.GetStudent(id);
-    if (student == null)
-    {
-        return Results.NotFound("Student not found");
-    }
-    return Results.Ok(student);
-});
+app.MapGet("/students", (IRepo repo) => repo.GetAll());
+// app.MapGet("/students/{id}", (int id) =>
+// {
+//     var student = repo.GetStudent(id);
+//     if (student == null)
+//     {
+//         return Results.NotFound("Student not found");
+//     }
+//     return Results.Ok(student);
+// });
 
 app.Run();
