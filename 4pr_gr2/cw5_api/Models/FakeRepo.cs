@@ -26,12 +26,14 @@ public class FakeRepo : IRepo
 
     public List<Student> GetAll()
     {
-        throw new NotImplementedException();
+        return _students;
     }
 
     public Student? GetStudent(int id)
     {
-        throw new NotImplementedException();
+       // return _students.FirstOrDefault(s => s.Id == id);
+       //return _students.Find(s => s.Id == id);
+       return _students.Find(s => s.Id == id);
     }
 
     public void UpdateStudent(Student student)
