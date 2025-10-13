@@ -45,7 +45,7 @@ public class Book
     }
     public void ShowInfo()
     {
-        Console.WriteLine($"Title: {Title}, Author: {Author}, Year: {year} (Digital: {isDigital})");
+        Console.WriteLine(this);
     }
     //todo other properties
 }
