@@ -2,7 +2,7 @@ using cw5_api.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 //dodaje do kontenera DI FakeRepo jako implementacje IRepo
-builder.Services.AddScoped<IRepo, FakeRepo>();
+builder.Services.AddScoped<IRepo, SqlRepo>();
 var app = builder.Build();
 //pobieram z kontenera DI implementacje IRepo
 var repo = app.Services.GetRequiredService<IRepo>();
