@@ -8,7 +8,7 @@ public class Book
     private int year;
     public override string ToString()
     {
-        return $"Title: {title}, Author: {author}, Year: {year} (Digital: {isDigital})";
+        return $"Title: {Title}, Author: {Author}, Year: {year} (Digital: {isDigital})";
     }
     public Book()
     {
@@ -19,21 +19,29 @@ public class Book
     }
     public Book(string title, string author, bool isDigital, int year)
     {
-        this.title = title;
-        this.author = author;
+        Title = title;
+        Author = author;
         this.isDigital = isDigital;
-        this.year = year;
+        Year = year;
     }
     //properties
     public string Title
     {
-        get { return title; }
+        get { return title.ToUpper(); }
         set { title = value; }
     }
     public string Author
     {
         get { return author; }
-        set { author = value; }
+        set { author = value.Trim(); }
+    }
+    public int Year
+    {
+        get { return year; }
+        set
+        {
+            year = (value < 0) ? 0 : value;
+        }
     }
     //todo other properties
 }
