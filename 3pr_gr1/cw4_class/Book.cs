@@ -28,7 +28,7 @@ public class Book
     public string Title
     {
         get { return title.ToUpper(); }
-        set { title = value; }
+        set { title = value.Trim(); }
     }
     public string Author
     {
