@@ -24,4 +24,16 @@ public class Book
         this.isDigital = isDigital;
         this.year = year;
     }
+    //properties
+    public string Title
+    {
+        get { return title; }
+        set { title = value; }
+    }
+    public string Author
+    {
+        get { return author; }
+        set { author = value; }
+    }
+    //todo other properties
 }
