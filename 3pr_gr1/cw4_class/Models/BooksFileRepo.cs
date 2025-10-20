@@ -35,4 +35,8 @@ public class BooksFileRepo
         }
         return Books;
     }
+    public BooksFileRepo(string filePath)
+    {
+        Books = LoadBooksFromFile(filePath);
+    }
 }
