@@ -18,26 +18,40 @@ public class FakeStudentRepo : IStudentRepo
     }
     public void AddStudent(Student student)
     {
-        throw new NotImplementedException();
+        //auto increment Id
+        int lastId = Students.Max(x => x.Id);
+        student.Id = lastId + 1;
+        Students.Add(student);
     }
 
     public void DeleteStudent(int id)
     {
-        throw new NotImplementedException();
+        Student? studentToRemove = Students.FirstOrDefault(x => x.Id == id);
+        if (studentToRemove != null)
+        {
+            Students.Remove(studentToRemove);
+            return;
+        } 
     }
 
     public Student? GetStudent(int id)
     {
-        throw new NotImplementedException();
+        return Students.FirstOrDefault(x => x.Id == id);
     }
 
     public List<Student> GetStudents()
     {
-        throw new NotImplementedException();
+        return Students;
     }
 
     public void UpdateStudent(Student student)
     {
-        throw new NotImplementedException();
+        var studentToUpdate = Students.FirstOrDefault(x => x.Id == student.Id);
+        if(studentToUpdate != null)
+        {
+            studentToUpdate.FirstName = student.FirstName;
+            studentToUpdate.LastName = student.LastName;
+            studentToUpdate.Age = student.Age;
+        }
     }
 }
