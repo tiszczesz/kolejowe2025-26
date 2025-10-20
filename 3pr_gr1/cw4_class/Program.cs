@@ -1,4 +1,5 @@
 ﻿using cw4_class;
+using cw4_class.Models;
 
 Book book = new Book();
 book.Title = "    The Great Gatsby";

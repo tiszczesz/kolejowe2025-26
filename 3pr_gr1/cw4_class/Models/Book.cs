@@ -1,4 +1,4 @@
-namespace cw4_class;
+namespace cw4_class.Models;
 
 public class Book
 {
@@ -6,6 +6,7 @@ public class Book
     private string author;
     private bool isDigital;
     private int year;
+    public int Id { get; set; }
     public override string ToString()
     {
         return $"Title: {Title}, Author: {Author}, Year: {year} (Digital: {isDigital})";
