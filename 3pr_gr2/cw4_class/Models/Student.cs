@@ -1,9 +1,9 @@
-namespace cw4_class;
+namespace cw4_class.Models;
 
 public class Student{
     private string firstName;
     private string lastName;
-    
+    public int Id { get; set; }
     //auto property
     public int Age { get; set; }
     public override string ToString()
