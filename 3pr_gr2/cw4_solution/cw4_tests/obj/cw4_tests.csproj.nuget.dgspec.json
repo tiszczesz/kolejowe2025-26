@@ -4,14 +4,14 @@
     "E:\\github\\kolejowe2025-26\\3pr_gr2\\cw4_solution\\cw4_tests\\cw4_tests.csproj": {}
   },
   "projects": {
-    "E:\\github\\kolejowe2025-26\\3pr_gr2\\cw4_solution\\cw4_class\\cw4_class.csproj": {
+    "e:\\github\\kolejowe2025-26\\3pr_gr2\\cw4_solution\\cw4_class\\cw4_class.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\github\\kolejowe2025-26\\3pr_gr2\\cw4_solution\\cw4_class\\cw4_class.csproj",
+        "projectUniqueName": "e:\\github\\kolejowe2025-26\\3pr_gr2\\cw4_solution\\cw4_class\\cw4_class.csproj",
         "projectName": "cw4_class",
-        "projectPath": "E:\\github\\kolejowe2025-26\\3pr_gr2\\cw4_solution\\cw4_class\\cw4_class.csproj",
+        "projectPath": "e:\\github\\kolejowe2025-26\\3pr_gr2\\cw4_solution\\cw4_class\\cw4_class.csproj",
         "packagesPath": "C:\\Users\\pszczesz\\.nuget\\packages\\",
-        "outputPath": "E:\\github\\kolejowe2025-26\\3pr_gr2\\cw4_solution\\cw4_class\\obj\\",
+        "outputPath": "e:\\github\\kolejowe2025-26\\3pr_gr2\\cw4_solution\\cw4_class\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pszczesz\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -85,8 +85,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "E:\\github\\kolejowe2025-26\\3pr_gr2\\cw4_solution\\cw4_class\\cw4_class.csproj": {
-                "projectPath": "E:\\github\\kolejowe2025-26\\3pr_gr2\\cw4_solution\\cw4_class\\cw4_class.csproj"
+              "e:\\github\\kolejowe2025-26\\3pr_gr2\\cw4_solution\\cw4_class\\cw4_class.csproj": {
+                "projectPath": "e:\\github\\kolejowe2025-26\\3pr_gr2\\cw4_solution\\cw4_class\\cw4_class.csproj"
               }
             }
           }

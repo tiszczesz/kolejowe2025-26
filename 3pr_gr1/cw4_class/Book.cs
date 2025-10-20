@@ -47,5 +47,10 @@ public class Book
     {
         Console.WriteLine(this);
     }
+    public bool IsDigital
+    {
+        get { return isDigital; }
+        set { isDigital = value; }
+    }
     //todo other properties
 }

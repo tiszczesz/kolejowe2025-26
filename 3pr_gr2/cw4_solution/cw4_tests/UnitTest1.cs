@@ -1,7 +1,9 @@
-﻿namespace cw4_tests;
+﻿using cw4_class;
+namespace cw4_tests;
 
+using cw4_class.Models;
 using Xunit;
-using cw4_class;
+
 
 
 public class UnitTest1
@@ -13,9 +15,9 @@ public class UnitTest1
         var repo = new FakeStudentRepo();
 
         //act
-        
+        var students = repo.GetStudents();
 
         //assert
-        
+        Assert.Equal(5, students.Count);
     }
 }
