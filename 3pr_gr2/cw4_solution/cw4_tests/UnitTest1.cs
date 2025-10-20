@@ -1,6 +1,6 @@
-﻿using cw4_class.Models;
+﻿
 namespace cw4_tests;
-
+using cw4_class.Models;
 
 using Xunit;
 
