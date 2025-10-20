@@ -14,3 +14,15 @@ foreach (var book in repo.Books)
 {
     Console.WriteLine(book);
 }
+Console.WriteLine("Dodac nowa ksiazke (t/n):");
+string? response = Console.ReadLine();
+if(response?.Length>0 && response.ToLower()[0]=='t')
+{
+    Book newBook = GetBookFromConsole.ReadBook();
+    repo.AddBook(newBook);
+    Console.WriteLine("Lista ksiazek po dodaniu nowej:");
+    foreach (var book in repo.Books)
+    {
+        Console.WriteLine(book);
+    }
+}

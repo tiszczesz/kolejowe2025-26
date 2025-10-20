@@ -35,6 +35,24 @@ public class BooksFileRepo
         }
         return Books;
     }
+
+    public void AddBook(Book newBook)
+    {
+        //auto increment Id
+        int newId = Books.Count > 0 ? Books.Max(b => b.Id) + 1 : 1;
+        newBook.Id = newId;
+        Books.Add(newBook);
+    }
+    public void SaveBooks(string filePath)
+    {
+        List<string> lines = new List<string>();
+        foreach (var book in Books)
+        {
+            string line = $"{book.Id};{book.Title};{book.Author};{book.Year};{book.IsDigital}";
+            lines.Add(line);
+        }
+        File.WriteAllLines(filePath, lines);
+    }
     public BooksFileRepo(string filePath)
     {
         Books = LoadBooksFromFile(filePath);
