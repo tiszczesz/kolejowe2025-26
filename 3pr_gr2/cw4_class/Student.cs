@@ -3,6 +3,9 @@ namespace cw4_class;
 public class Student{
     private string firstName;
     private string lastName;
+    
+    //auto property
+    public int Age { get; set; }
     public override string ToString()
     {
         return $"{FirstName} {LastName}";
