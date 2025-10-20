@@ -21,4 +21,18 @@ public class BooksFileRepo
             IsDigital = bool.Parse(parts[4])
         };
     }
+    public List<Book> LoadBooksFromFile(string filePath)
+    {
+        Books = new List<Book>();
+        var lines = File.ReadAllLines(filePath);
+        foreach (var line in lines)
+        {
+            var book = ParseLine(line);
+            if (book != null)
+            {
+                Books.Add(book);
+            }
+        }
+        return Books;
+    }
 }
