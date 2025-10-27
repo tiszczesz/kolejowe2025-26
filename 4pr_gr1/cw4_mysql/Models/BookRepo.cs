@@ -30,6 +30,7 @@ public class BookRepo
             };
             books.Add(book);
         }
+        conn.Close();
         return books;
     }
 }
