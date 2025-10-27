@@ -1,0 +1,27 @@
+﻿@page
+@model cw5_web.Pages.IndexModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/index.css">
+</head>
+<body>
+     <header>
+        <nav>Nawigacja 2.0</nav>
+    </header>
+    <main>
+        <h1>To nie jest strona statyczna</h1>
+        @{ 
+            string text = "Ala ma kota na punkcie ReazorPages";
+        }
+        <p>To jest wartość zmiennej text = @text</p>
+    </main>
+
+    <footer>&copy; 2025</footer>
+    <script src="~/index.js" defer></script>
+</body>
+</html>
