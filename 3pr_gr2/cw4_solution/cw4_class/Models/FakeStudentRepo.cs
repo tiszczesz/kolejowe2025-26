@@ -14,6 +14,7 @@ public class FakeStudentRepo : IStudentRepo
             new Student{Id=3,FirstName="Reneta",LastName="Sałata",Age=45},
             new Student{Id=4,FirstName="Tomasz",LastName="Bomasz",Age=33},
             new Student{Id=5,FirstName="Grażyna",LastName="Sprężyna",Age=56},
+            new Student{Id=6,FirstName="Urszula",LastName="Koszula",Age=23},
         };
     }
     public void AddStudent(Student student)
