@@ -10,12 +10,22 @@ namespace cw4_mysql.Controllers
         {
             _db = new BookRepo(config);
         }
-      
+
         // GET: BooksStoreController
         public ActionResult Index()
         {
             var books = _db.GetBooks();
             return View(books);
+        }
+        [HttpGet]
+        public IActionResult AddBook()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddBook(Book book)
+        {
+            return View();
         }
 
     }

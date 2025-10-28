@@ -15,7 +15,14 @@
 
 <body>
     <header>
-        <nav>Tu będzie nawigacja</nav>
+        <nav class="d-flex gap-3 m-2">
+            <div>
+                <a style="text-decoration:none;" asp-action="Index">Strona główna</a>
+            </div>
+            <div>
+                <a style="text-decoration:none;" asp-action="AddBook">Dodaj książkę</a>
+            </div>
+        </nav>
     </header>
     <main class="container">
         @RenderBody()
