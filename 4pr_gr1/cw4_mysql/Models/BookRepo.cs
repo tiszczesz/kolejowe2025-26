@@ -13,6 +13,7 @@ public class BookRepo
     public List<Book> GetBooks()
     {
         List<Book> books = new();
+        //Ado.Net  
         using var conn = new MySqlConnection(_connectionString);
         using var cmd = conn.CreateCommand();
         cmd.CommandText = "SELECT id, title, author, price, realizeDate FROM books";

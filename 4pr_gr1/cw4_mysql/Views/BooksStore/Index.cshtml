@@ -1,3 +1,27 @@
 ﻿@model List<Book>
 
-<h1>Strona główna</h1>
+<h1>Lista książek</h1>
+<table class="table table-striped">
+    <thead>
+        <th>Lp</th>
+        <th>Tytuł</th>
+        <th>Autor</th>
+        <th>Cena</th>
+        <th>Data wydania</th>
+        <th> --- </th>
+    </thead>
+    <tbody>
+        @{ int lp = 0; }
+        @foreach (Book book in Model){
+            lp++;
+            <tr>
+                <td>@lp</td>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.Price</td>
+                <td>@book.RealizeDate.ToShortDateString()</td>
+                <td> </td>
+            </tr>
+        }
+    </tbody>
+</table>
