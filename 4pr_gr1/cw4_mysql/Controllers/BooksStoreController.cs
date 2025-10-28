@@ -25,6 +25,12 @@ namespace cw4_mysql.Controllers
         [HttpPost]
         public IActionResult AddBook(Book book)
         {
+            if (ModelState.IsValid)
+            {
+                //zapisanie do bazy
+                _db.AddBook(book);
+                return RedirectToAction("Index");
+            }
             return View();
         }
 
