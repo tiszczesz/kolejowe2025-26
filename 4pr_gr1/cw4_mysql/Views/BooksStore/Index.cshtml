@@ -11,8 +11,11 @@
         <th> --- </th>
     </thead>
     <tbody>
-        @{ int lp = 0; }
-        @foreach (Book book in Model){
+        @{
+            int lp = 0;
+        }
+        @foreach (Book book in Model)
+        {
             lp++;
             <tr>
                 <td>@lp</td>
@@ -20,7 +23,10 @@
                 <td>@book.Author</td>
                 <td>@book.Price</td>
                 <td>@book.RealizeDate.ToShortDateString()</td>
-                <td> </td>
+                <td>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@book.Id">USUŃ</a>
+                    <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@book.Id">EDYTUJ</a>
+                </td>
             </tr>
         }
     </tbody>

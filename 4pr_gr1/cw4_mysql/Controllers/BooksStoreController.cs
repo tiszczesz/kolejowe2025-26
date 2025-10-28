@@ -33,6 +33,27 @@ namespace cw4_mysql.Controllers
             }
             return View();
         }
+        public IActionResult Delete(int id)
+        {
+            //usuwanie z bazy
+            return View();
+        }
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            //pobranie z bazy
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Edit(Book book)
+        {
+            if (ModelState.IsValid)
+            {
+                //zapisanie do bazy
+                return RedirectToAction("Index");
+            }
+            return View();
+        }   
 
     }
 }
