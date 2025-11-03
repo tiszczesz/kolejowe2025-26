@@ -84,5 +84,20 @@ public class BookRepo
         conn.Close();
         return null;
     }
+    public void UpdateBook(Book book)
+    {
+        using var conn = new MySqlConnection(_connectionString);
+        using var cmd = conn.CreateCommand();
+        cmd.CommandText = "UPDATE books  SET title=@title, author=@author, " +
+          " price=@price, realizeDate=@realizeDate WHERE id=@id";
+        cmd.Parameters.AddWithValue("@title", book.Title);
+        cmd.Parameters.AddWithValue("@author", book.Author);
+        cmd.Parameters.AddWithValue("@price", book.Price);
+        cmd.Parameters.AddWithValue("@realizeDate", book.RealizeDate);
+        cmd.Parameters.AddWithValue("@id", book.Id);
+        conn.Open();
+        cmd.ExecuteNonQuery(); //wykonanie polecenia
+        conn.Close();
+    }
     
 }

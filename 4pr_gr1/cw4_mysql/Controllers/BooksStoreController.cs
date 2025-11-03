@@ -42,15 +42,23 @@ namespace cw4_mysql.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            //pobranie z bazy
-            return View();
+            //pobranie z bazy do edycji
+            var bookToEdit = _db.GetBookById(id);
+            if (bookToEdit == null)
+            {
+                //powrot do9 listy gdy nie znaleziono ksiazki do edycji
+                return RedirectToAction("Index");
+            }
+            //wysłanie do widoku modelu do edycji z formularzem
+            return View(bookToEdit);
         }
         [HttpPost]
         public IActionResult Edit(Book book)
         {
             if (ModelState.IsValid)
             {
-                //zapisanie do bazy
+                //zapisanie do bazy po edycji
+                _db.UpdateBook(book);
                 return RedirectToAction("Index");
             }
             return View();
