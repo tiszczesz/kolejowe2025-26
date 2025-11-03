@@ -1,0 +1,21 @@
+﻿@page
+@model cw5_web.Pages.SecondModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona kolorowa</title>
+</head>
+<body>
+    <h1>Strona kolorowa</h1>
+    <main>
+      <select>
+        @foreach (var color in Model.Colors)
+        {
+            <option value="@color">@color</option>
+        }
+      </select>
+    </main>
+</body>
+</html>
