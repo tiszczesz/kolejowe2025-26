@@ -36,7 +36,8 @@ namespace cw4_mysql.Controllers
         public IActionResult Delete(int id)
         {
             //usuwanie z bazy
-            return View();
+            _db.DeleteBook(id);
+            return RedirectToAction("Index");    
         }
         [HttpGet]
         public IActionResult Edit(int id)
