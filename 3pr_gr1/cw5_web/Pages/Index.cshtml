@@ -26,6 +26,26 @@
         }
         <p>To jest wartość zmiennej text = @text</p>
         <p>@Model.ActualDate</p>
+        <section>
+        <table class="table table-stripped">
+        <thead>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>Wiek</th>
+        <th>Czy rodzina</th>
+        </thead>
+        <tbody>
+        @foreach(var c in Model.Contacts){
+            <tr>
+                <td>@c.FirstName</td>
+                <td>@c.LastName</td>
+                <td>@c.Age</td>
+                <td>@c.IsFamily</td>
+            </tr>
+        }
+        </tbody>
+        </table>
+        </section>
     </main>
 
     <footer>&copy; 2025</footer>
