@@ -1,0 +1,15 @@
+/home/pszczeszek/repo/kolejowe2025-26/3pr_gr2/cw4_class/bin/Debug/net9.0/cw4_class
+/home/pszczeszek/repo/kolejowe2025-26/3pr_gr2/cw4_class/bin/Debug/net9.0/cw4_class.deps.json
+/home/pszczeszek/repo/kolejowe2025-26/3pr_gr2/cw4_class/bin/Debug/net9.0/cw4_class.runtimeconfig.json
+/home/pszczeszek/repo/kolejowe2025-26/3pr_gr2/cw4_class/bin/Debug/net9.0/cw4_class.dll
+/home/pszczeszek/repo/kolejowe2025-26/3pr_gr2/cw4_class/bin/Debug/net9.0/cw4_class.pdb
+/home/pszczeszek/repo/kolejowe2025-26/3pr_gr2/cw4_class/obj/Debug/net9.0/cw4_class.GeneratedMSBuildEditorConfig.editorconfig
+/home/pszczeszek/repo/kolejowe2025-26/3pr_gr2/cw4_class/obj/Debug/net9.0/cw4_class.AssemblyInfoInputs.cache
+/home/pszczeszek/repo/kolejowe2025-26/3pr_gr2/cw4_class/obj/Debug/net9.0/cw4_class.AssemblyInfo.cs
+/home/pszczeszek/repo/kolejowe2025-26/3pr_gr2/cw4_class/obj/Debug/net9.0/cw4_class.csproj.CoreCompileInputs.cache
+/home/pszczeszek/repo/kolejowe2025-26/3pr_gr2/cw4_class/obj/Debug/net9.0/cw4_class.sourcelink.json
+/home/pszczeszek/repo/kolejowe2025-26/3pr_gr2/cw4_class/obj/Debug/net9.0/cw4_class.dll
+/home/pszczeszek/repo/kolejowe2025-26/3pr_gr2/cw4_class/obj/Debug/net9.0/refint/cw4_class.dll
+/home/pszczeszek/repo/kolejowe2025-26/3pr_gr2/cw4_class/obj/Debug/net9.0/cw4_class.pdb
+/home/pszczeszek/repo/kolejowe2025-26/3pr_gr2/cw4_class/obj/Debug/net9.0/cw4_class.genruntimeconfig.cache
+/home/pszczeszek/repo/kolejowe2025-26/3pr_gr2/cw4_class/obj/Debug/net9.0/ref/cw4_class.dll
