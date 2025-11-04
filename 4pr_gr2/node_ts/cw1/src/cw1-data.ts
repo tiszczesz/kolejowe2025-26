@@ -1,0 +1,1 @@
+export const data = ["apple", "banana", "cherry"];
