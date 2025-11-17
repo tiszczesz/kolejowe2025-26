@@ -1,0 +1,32 @@
+﻿@page
+@model cw5_RazorPages.Pages.OtherModel
+@{
+
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>To powinno być niebieskie</h1>
+    <h3>Inna strona - Razor Page</h3>
+    <table>
+     @foreach(var book in Model.MyBooks)
+     {
+        <tr>
+            @* <td>@book.Id</td> *@
+            <td>@book.Title</td>
+            <td>@book.Author</td>
+            <td>@book.PublishedDate.ToShortDateString()</td>
+        </tr>
+     }
+    </table>
+</body>
+
+</html>
