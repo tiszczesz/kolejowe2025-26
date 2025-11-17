@@ -1,3 +1,5 @@
+using cw5_web.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 //dodawanie nowych usług do kontenera
 //dodawanie  Razor Pages itp.
@@ -12,5 +14,6 @@ app.MapRazorPages(); //dodanie obsługi Razor Pages Index w katalogu Pages
 app.MapGet("/first", () => "Hello First!");
 app.MapGet("/info", () => info.ToUpper());
 app.MapGet("/data", () => DateTime.Now.ToShortDateString());
+app.MapGet("/api/books",()=>Books.GetBooks());
 
 app.Run();
