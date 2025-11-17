@@ -1,0 +1,57 @@
+﻿@page
+@model cw5_web.Pages.MyPostFormModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="/Index">Główna strona</a>
+            <a href="/Second">Kolorowa strona</a>
+            <a asp-page="MyForm">Formularz</a>
+            <a asp-page="MyPostForm">Formularz POST</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Formularz zgłoszeniowy (POST)</h1>
+        <form asp-action="MyPostForm" method="post">
+            <div class="row m-2">
+                <input type="text" name="firstname" id="firstname" placeholder="Podaj imię" class="col-6" />
+            </div>
+            <div class="row m-2">
+                <input type="number" min="1" max="120" name="age" id="age" placeholder="Podaj wiek" class="col-6" />
+            </div>
+            <div class="row m-2">
+                <input type="submit" value="Wyślij" class="col-6 btn btn-primary" />
+            </div>
+        </form>
+        <hr>
+        <h2>Odebrane dane:</h2>
+        @if (Model.MyPerson != null)
+        {
+            <div>Imię: @Model.MyPerson.FirstName</div>
+            <div>Wiek: @Model.MyPerson.Age</div>
+        }
+        else
+        {
+            <div>Brak danych</div>
+        }
+        <div>
+        </div>
+    </main>
+    <footer>
+        &copy; 2025
+    </footer>
+</body>
+
+</html>

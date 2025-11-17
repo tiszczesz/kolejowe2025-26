@@ -9,7 +9,8 @@ namespace cw5_web.Pages
         public Person MyPerson { get; set; }
         public void OnGet()
         {
-            if(Request.Query.ContainsKey("firstName"))
+            //sprawdzenie czy w zapytaniu są dane z formularza
+            if(Request.Query.ContainsKey("firstName") && Request.Query.ContainsKey("age"))
             {
 
                 var firstName = Request.Query["firstName"];
