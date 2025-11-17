@@ -8,7 +8,7 @@ var app = builder.Build();
 app.UseStaticFiles();
 var info = "Ala ma kota";
 //app.MapGet("/", () => "Hello World!");
-app.MapRazorPages();
+app.MapRazorPages(); //dodanie obsługi Razor Pages Index w katalogu Pages
 app.MapGet("/first", () => "Hello First!");
 app.MapGet("/info", () => info.ToUpper());
 app.MapGet("/data", () => DateTime.Now.ToShortDateString());
