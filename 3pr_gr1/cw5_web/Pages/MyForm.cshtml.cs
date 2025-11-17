@@ -10,6 +10,7 @@ namespace cw5_web.Pages
         public void OnGet()
         {
             //sprawdzenie czy w zapytaniu są dane z formularza
+            //if(isset($_GET['firstname']))
             if(Request.Query.ContainsKey("firstName") && Request.Query.ContainsKey("age"))
             {
 
