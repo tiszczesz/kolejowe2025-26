@@ -28,7 +28,8 @@ public class SqliteRepo : ISqliteRepo
         conn.Open();
         using SqliteDataReader reader = cmd.ExecuteReader();
         List<Book> books = new List<Book>();
-        while (reader.Read()){
+        while (reader.Read())
+        {
             Book book = new Book();
             book.Id = reader.GetInt32(0);
             book.Title = reader.GetString(1);
@@ -41,7 +42,23 @@ public class SqliteRepo : ISqliteRepo
 
     public Book? GetBook(int id)
     {
-        throw new NotImplementedException();
+        using SqliteConnection conn = new SqliteConnection(_connectionString);
+        using SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = "SELECT id, title, author, published_year FROM Books WHERE id = @id";
+        cmd.Parameters.AddWithValue("@id", id);
+        conn.Open();
+        using SqliteDataReader reader = cmd.ExecuteReader();
+        if (!reader.HasRows)
+        {
+            return null;
+        }
+        reader.Read();
+        Book book = new Book();
+        book.Id = reader.GetInt32(0);
+        book.Title = reader.GetString(1);
+        book.Author = reader.GetString(2);
+        book.PublishedYear = reader.GetInt32(3);
+        return book;
     }
 
     public void UpdateBook(Book book)
