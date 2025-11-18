@@ -14,7 +14,8 @@ public class SqliteRepo : ISqliteRepo
     {
         using SqliteConnection conn = new SqliteConnection(_connectionString);
         using SqliteCommand cmd = conn.CreateCommand();
-        cmd.CommandText = "INSERT INTO Books (title, author, published_year) VALUES (@title, @author, @published_year); SELECT last_insert_rowid();";
+        cmd.CommandText = "INSERT INTO Books (title, author, published_year) "
+                   + "VALUES (@title, @author, @published_year);";
         cmd.Parameters.AddWithValue("@title", book.Title);
         cmd.Parameters.AddWithValue("@author", book.Author);
         cmd.Parameters.AddWithValue("@published_year", book.PublishedYear);
@@ -25,7 +26,13 @@ public class SqliteRepo : ISqliteRepo
 
     public void DeleteBook(int id)
     {
-        throw new NotImplementedException();
+        using SqliteConnection conn = new SqliteConnection(_connectionString);
+        using SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = "DELETE FROM Books WHERE id = @id";
+        cmd.Parameters.AddWithValue("@id", id);
+        conn.Open();
+        cmd.ExecuteNonQuery();
+        conn.Close();
     }
 
     public List<Book> GetAllBooks()
