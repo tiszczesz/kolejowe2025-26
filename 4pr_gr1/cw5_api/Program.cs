@@ -37,5 +37,19 @@ app.MapDelete("/books/{id}", (ISqliteRepo repo, int id) =>
     repo.DeleteBook(id);
     return Results.NoContent();
 });
+app.MapPut("/books/{id}", (ISqliteRepo repo, int id, Book updatedBook) =>
+{
+    var book = repo.GetBook(id);
+    if (book == null)
+    {
+        return Results.NotFound();
+    }
+    //aktualizacja danych książki
+    book.Title = updatedBook.Title;
+    book.Author = updatedBook.Author;
+    book.PublishedYear = updatedBook.PublishedYear;
+    repo.UpdateBook(book);
+    return Results.NoContent();
+});
 
 app.Run();

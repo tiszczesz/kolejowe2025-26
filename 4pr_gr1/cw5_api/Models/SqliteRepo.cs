@@ -78,6 +78,16 @@ public class SqliteRepo : ISqliteRepo
 
     public void UpdateBook(Book book)
     {
-        throw new NotImplementedException();
+        using SqliteConnection conn = new SqliteConnection(_connectionString);
+        using SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = "UPDATE Books SET title = @title, author = @author, "
+                        + "published_year = @published_year WHERE id = @id;";
+        cmd.Parameters.AddWithValue("@title", book.Title);
+        cmd.Parameters.AddWithValue("@author", book.Author);
+        cmd.Parameters.AddWithValue("@published_year", book.PublishedYear);
+        cmd.Parameters.AddWithValue("@id", book.Id);
+        conn.Open();
+        cmd.ExecuteNonQuery();
+        conn.Close();
     }
 }
