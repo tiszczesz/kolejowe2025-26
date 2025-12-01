@@ -1,3 +1,5 @@
 node_modules/
-dist/*.ts
-dist/*d.ts.*
+dist/**
+
+!dist/**/*.html
+!dist/**/*.css
