@@ -1,4 +1,4 @@
 const colors: string[] = ["red", "green", "blue"];
-for(const c in colors) {
+for(const c of colors) {
     console.log(`element tablicy: ${c}`);
 }
