@@ -12,10 +12,21 @@
 
 <body>
     <h1>TS i web</h1>
+    <section>
+        <form>
+            <input id="title" type="text" placeholder="Tytuł"> 
+            <input id="author" type="text" placeholder="Autor">
+            <input id="pages" type="number" placeholder="Liczba stron">
+            <input id="year" type="number" placeholder="Rok wydania">
+            <input id="price" type="number" placeholder="Cena" step="0.01">
+            <button  type="submit">Dodaj książkę</button>
+        </form>
+    </section>
     <main class="d-flex gap-3">
         <div id="result1" class="w-50"></div>
         <div id="result2">sadsadsad</div>
     </main>
+    <section id="showBook"></section>
     <script type="module" src="index.js" defer></script>
 </body>
 

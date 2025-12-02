@@ -2,6 +2,7 @@ export const colors = ['red', 'green', 'blue',
     'yellow', 'purple'];
 export const books = [
     {
+        id: 1,
         title: 'Podróżnik w czasie',
         author: 'Anna Kowalska',
         year: 2018,
@@ -9,6 +10,7 @@ export const books = [
         price: 34.99
     },
     {
+        id: 2,
         title: 'Cienie nad Wisłą',
         author: 'Marek Nowicki',
         year: 2021,
@@ -16,6 +18,7 @@ export const books = [
         price: 29.5
     },
     {
+        id: 3,
         title: 'Sekrety starych map',
         author: 'Ewa Zielińska',
         year: 2015,
@@ -23,6 +26,7 @@ export const books = [
         price: 42.0
     },
     {
+        id: 4,
         title: 'Algorytmy codzienności',
         author: 'Tomasz Wiśniewski',
         year: 2023,
@@ -30,6 +34,7 @@ export const books = [
         price: 49.99
     },
     {
+        id: 5,
         title: 'Smak morza',
         author: 'Joanna Malinowska',
         year: 2009,
@@ -37,6 +42,7 @@ export const books = [
         price: 24.9
     },
     {
+        id: 6,
         title: 'Między wierszami',
         author: 'Piotr Szymański',
         year: 2012,
@@ -44,6 +50,7 @@ export const books = [
         price: 19.99
     },
     {
+        id: 7,
         title: 'Nocne obserwacje',
         author: 'Katarzyna Bąk',
         year: 2017,
@@ -51,6 +58,7 @@ export const books = [
         price: 37.5
     },
     {
+        id: 8,
         title: 'Mechanika uczuć',
         author: 'Łukasz Krawczyk',
         year: 2020,
@@ -58,6 +66,7 @@ export const books = [
         price: 31.0
     },
     {
+        id: 9,
         title: 'Przyszłość w skrócie',
         author: 'Magdalena Rutkowska',
         year: 2024,
@@ -65,6 +74,7 @@ export const books = [
         price: 27.5
     },
     {
+        id: 10,
         title: 'Pod lasem',
         author: 'Adam Piasecki',
         year: 2005,
@@ -72,4 +82,13 @@ export const books = [
         price: 39.0
     }
 ];
+export const getMaxBookId = (data) => {
+    let max = 0;
+    for (const book of data) {
+        if (book.id > max) {
+            max = book.id;
+        }
+    }
+    return max;
+};
 //# sourceMappingURL=data.js.map
