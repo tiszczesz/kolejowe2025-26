@@ -1,0 +1,18 @@
+﻿@page
+@model cw6_forms.Pages.Form1Model
+@{
+}
+<h1>Formularz 1</h1>
+<form asp-page="Form1" method="get">
+    <input type="text" placeholder="Podaj imię" name="firstname"> <br />
+    <input type="text" placeholder="Podaj nazwisko" name="lastname"> <br />
+    <input type="number" placeholder="Podaj wiek" name="age"> <br />
+    <input type="submit" value="Wyślij">
+</form>
+<hr>
+@if(ViewData["Message"]!=null){
+    <h3>@ViewData["Message"]</h3>
+    <p>Imię: @Model.MyPerson.FirstName</p>
+    <p>Nazwisko: @Model.MyPerson.LastName</p>
+    <p>Wiek: @Model.MyPerson.Age</p>
+}
