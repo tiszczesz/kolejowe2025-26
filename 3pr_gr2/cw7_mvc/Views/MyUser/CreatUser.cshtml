@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form asp-action="CreateUser" method="post">
+        <label for="FirstName">Imię:</label>
+        <input type="text" id="FirstName" name="FirstName" required />
+        <br />
+        <label for="LastName">Nazwisko:</label>
+        <input type="text" id="LastName" name="LastName" required />
+        <br />
+        <label for="BirthDate">Data urodzenia:</label>
+        <input type="date" id="BirthDate" name="BirthDate" required />
+        <br />
+        <button type="submit">Utwórz użytkownika</button>
+    </form>
+</body>
+</html>
