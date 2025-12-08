@@ -52,6 +52,14 @@ Wyjaśnienia kluczowych opcji:
 - `rootDir: "src"` i `outDir: "dist"` — źródła w `src`, wynik w `dist`.
 - `target: "ES2020"` — wynikowy JS będzie używać nowoczesnych funkcji ES.
 
+Alternatywnie odkomentowujesz outDir i rootDir
+
+Doinstalować typy TS do node
+```console
+npm i @types/node -D
+```
+W pliku tsconfig dodać do tablicy uzycie typów node
+
 Krok 4 — konfiguracja package.json do użycia ESM
 Otwórz `package.json` i dodaj/zmodyfikuj pola:
 ```json
@@ -126,9 +134,3 @@ mkdir src
 npm run build
 npm start
 ```
-
-To wszystko — masz gotową instrukcję krok po kroku. Jeśli chcesz, mogę:
-- dodać plik `instrukcja.md` do repo (utworzyć commit/PR),
-- dodać przykładowe pliki `src/index.ts` i `tsconfig.json` bezpośrednio do repo,
-- lub przygotować alternatywną konfigurację (np. dla CommonJS lub z Babel/webpack).
-Powiedz, co mam zrobić dalej.
