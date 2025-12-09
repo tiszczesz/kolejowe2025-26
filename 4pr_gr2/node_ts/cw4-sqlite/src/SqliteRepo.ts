@@ -32,6 +32,6 @@ export const initDB = async (): Promise<Database> => {
  
 export const getAllUsers = async (): Promise<User[]|undefined> => {
     const database = await initDB();
-    const users: User[]|undefined = await database.get<User[]>('SELECT * FROM users');
+    const users: User[]|undefined = await database.all<User[]>('SELECT * FROM users');
     return users;
 }
