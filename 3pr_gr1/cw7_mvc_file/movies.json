@@ -1,0 +1,12 @@
+[
+    { "Id": 1, "Title": "Słoneczne miasto", "Director": "Agnieszka Kowalska", "Year": 2010 },
+    { "Id": 2, "Title": "Cień nad rzeką", "Director": "Marek Nowak", "Year": 2015 },
+    { "Id": 3, "Title": "Ostatni list", "Director": "Joanna Wiśniewska", "Year": 2008 },
+    { "Id": 4, "Title": "Na granicy snu", "Director": "Piotr Zieliński", "Year": 2021 },
+    { "Id": 5, "Title": "Miasto bez imienia", "Director": "Ewa Lewandowska", "Year": 1999 },
+    { "Id": 6, "Title": "Jazz w deszczu", "Director": "Krzysztof Malinowski", "Year": 2005 },
+    { "Id": 7, "Title": "Biały pokój", "Director": "Magdalena Piotrowska", "Year": 2018 },
+    { "Id": 8, "Title": "Droga do domu", "Director": "Tomasz Grabowski", "Year": 2012 },
+    { "Id": 9, "Title": "Zegar pamięci", "Director": "Anna Szymańska", "Year": 1995 },
+    { "Id": 10, "Title": "Północny wiatr", "Director": "Łukasz Krawczyk", "Year": 2024 }
+]
