@@ -10,7 +10,7 @@ export type User =  {
     id: number;
     name: string;
     email: string;
-    created_at: string; // DATETIME (ISO string) from SQLite
+    created_at?: string; // DATETIME (ISO string) from SQLite
 }
 
 
@@ -29,9 +29,22 @@ export const initDB = async (): Promise<Database> => {
     });
     return db;
 }
+export const closeDB = async (): Promise<void> => {
+    if(db) {
+        await db.close();
+        db = null;
+    }
+}
  
 export const getAllUsers = async (): Promise<User[]|undefined> => {
     const database = await initDB();
     const users: User[]|undefined = await database.all<User[]>('SELECT * FROM users');
+    await closeDB();
     return users;
+}
+export const addUser = async (user:User): Promise<void> => {
+    const database = await initDB();
+    await database.run('INSERT INTO users (name, email) VALUES (?, ?)', 
+        user.name, user.email);
+    await closeDB();
 }
