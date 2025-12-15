@@ -1,1 +1,25 @@
-﻿<h2>Lista Filmów</h2>
+﻿@model List<Movie>
+<h2>Lista Filmów</h2>
+<table class="table table-striped">
+    <thead>
+        <th>Lp</th>
+        <th>Tytuł</th>
+        <th>Reżyser</th>
+        <th>Rok</th>
+        <th></th>
+    </thead>
+    <tbody>
+        @{int lp = 0;}
+        @foreach(var movie in Model){
+            lp++;
+            <tr>
+                <td>@lp</td>
+                <td>@movie.Title</td>
+                <td>@movie.Director</td>
+                <td>@movie.Year</td>
+                <td></td>
+            </tr>
+        }
+    </tbody>
+</table>
+    

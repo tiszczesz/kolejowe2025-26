@@ -1,15 +1,22 @@
+using cw7_mvc_file.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace cw7_mvc_file.Controllers
 {
     public class MoviesLibController : Controller
     {
+        private IMoviesRepo _moviesRepo;
+        public MoviesLibController(IMoviesRepo moviesRepo)
+        {
+            _moviesRepo = moviesRepo;
+        }
         // GET: MoviesLibController
         public ActionResult List()
         {
-            return View();
+            var movies = _moviesRepo.GetAll();
+            return View(movies);
         }
-        
+
         [HttpGet]
         public IActionResult AddMovie()
         {
