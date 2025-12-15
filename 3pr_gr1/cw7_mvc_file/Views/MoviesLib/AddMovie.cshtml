@@ -1,1 +1,7 @@
-﻿<h2>Dodaj Film</h2>
+﻿@model Movie
+<h2>Dodaj Film</h2>
+<form asp-action="AddMovie" method="post">
+    <div class="row">
+        <label asp-for="Title"></label>
+    </div>
+</form>
