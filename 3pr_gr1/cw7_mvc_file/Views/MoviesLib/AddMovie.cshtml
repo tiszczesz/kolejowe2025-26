@@ -1,7 +1,24 @@
 ﻿@model Movie
 <h2>Dodaj Film</h2>
 <form asp-action="AddMovie" method="post">
-    <div class="row">
-        <label asp-for="Title"></label>
+    <div class="row mb-3">
+        <label asp-for="Title" class="col-3 text-end"></label>
+        <input asp-for="Title" class="col-6 form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="row mb-3">
+        <label asp-for="Director" class="col-3 text-end"></label>
+        <input asp-for="Director" class="col-6 form-control" />
+        <span asp-validation-for="Director" class="text-danger"></span>
+    </div>
+        <div class="row mb-3">
+        <label asp-for="Year" class="col-3 text-end"></label>
+        <input type="number" asp-for="Year" class="col-6 form-control" />
+        <span asp-validation-for="Year" class="text-danger"></span>
+    </div>
+    <div class="row mb-3">
+        <div class="col-9 offset-3">
+            <button type="submit" class="btn btn-primary">Dodaj Film</button>
+        </div>
     </div>
 </form>
