@@ -1,0 +1,2 @@
+1;Ala;Małecka;23
+2;Roman;Fryc;45
