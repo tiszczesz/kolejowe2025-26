@@ -1,0 +1,10 @@
+1|Pan Tadeusz|Adam Mickiewicz|1834
+2|Lalka|Bolesław Prus|1890
+3|Zbrodnia i kara|Fiodor Dostojewski|1866
+4|Rok 1984|George Orwell|1949
+5|Sto lat samotności|Gabriel García Márquez|1967
+6|Mistrz i Małgorzata|Michaił Bułhakow|1967
+7|Wielki Gatsby|F. Scott Fitzgerald|1925
+8|Duma i uprzedzenie|Jane Austen|1813
+9|Folwark zwierzęcy|George Orwell|1945
+10|Mały Książę|Antoine de Saint-Exupéry|1943
