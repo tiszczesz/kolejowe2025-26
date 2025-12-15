@@ -1,2 +1,27 @@
-﻿
+﻿@model List<Book>
 <h2>Lista książek</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Lp</th>
+            <th>Tytuł</th>
+            <th>Autor</th>
+            <th>Rok wydania</th>
+            <th> ----- </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int lp = 0;}
+        @foreach (var book in Model)
+        {
+            
+            <tr>
+                <td>@(++lp)</td>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.YearPublished</td>
+                <td></td>
+            </tr>
+        }
+    </tbody>
+</table>

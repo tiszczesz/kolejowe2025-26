@@ -1,5 +1,8 @@
+using cw8_mvc_files.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<IBooksRepo, FileBooksRepo>();
 var app = builder.Build();
 app.UseStaticFiles();
 //app.MapGet("/", () => "Hello World!");
