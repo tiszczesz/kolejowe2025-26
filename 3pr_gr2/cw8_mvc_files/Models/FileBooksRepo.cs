@@ -7,7 +7,20 @@ public class FileBooksRepo : IBooksRepo
     private readonly string filePath = "books.txt";
     public void AddBook(Book book)
     {
-        throw new NotImplementedException();
+        book.Id = GetNextId();
+        var books = GetBooks();
+        books.Add(book);
+        SaveBooks(books);
+    }
+
+    private void SaveBooks(List<Book> books)
+    {
+        var lines = new List<string>();
+        foreach(var book in books)
+        {
+            lines.Add($"{book.Id}|{book.Title}|{book.Author}|{book.YearPublished}");
+        }
+        File.WriteAllLines(filePath, lines);
     }
 
     public Book? GetBookById(int id)
