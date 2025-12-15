@@ -7,7 +7,10 @@ const rl:readline.Interface = readline.createInterface({
 })
 async function main(){
     const firstName = await rl.question("Podaj imię: ");
+    const age = parseInt(await rl.question("Podaj wiek: "));
     console.log(firstName);
+    console.log(`Witaj ${firstName} 
+        ${(age<18) ? "niepełnoletni": "pełnoletni"}`)
     rl.close();
 }
 main();
