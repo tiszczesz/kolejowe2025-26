@@ -49,4 +49,35 @@ export const getBookById = async (id: string): Promise<Book|undefined> =>{
     }
      console.log(`Book found with id=${id}`);
     return (rows as Book[])[0];
+}
+export const deleteBookById = async (id: string): Promise<boolean> => {
+    connection = await getConnection();
+    const [result] = await connection.execute<mysql.ResultSetHeader>(
+        'DELETE FROM books WHERE id = ?',
+        [id]
+    );
+    await connection.end();
+    connection = null;
+    return result.affectedRows > 0;
 };
+
+export const addBook = async (book: Omit<Book, 'id'>): Promise<number> => {
+    connection = await getConnection();
+    const [result] = await connection.execute<mysql.ResultSetHeader>(
+        'INSERT INTO books (title, author, price) VALUES (?, ?, ?)',
+        [book.title, book.author, book.price]
+    );
+    await connection.end();
+    connection = null;
+    return result.insertId;
+};
+export const updateBook = async (book: Book): Promise<boolean> => {
+    connection = await getConnection();
+    const [result] = await connection.execute<mysql.ResultSetHeader>(   
+        'UPDATE books SET title = ?, author = ?, price = ? WHERE id = ?',
+        [book.title, book.author, book.price, book.id]
+    );  
+    await connection.end();
+    connection = null;
+    return result.affectedRows > 0;
+}
