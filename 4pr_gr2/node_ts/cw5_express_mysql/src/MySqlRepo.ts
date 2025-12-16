@@ -61,7 +61,7 @@ export const deleteBookById = async (id: string): Promise<boolean> => {
     return result.affectedRows > 0;
 };
 
-export const addBook = async (book: Omit<Book, 'id'>): Promise<number> => {
+export const addBook = async (book:Book): Promise<number> => {
     connection = await getConnection();
     const [result] = await connection.execute<mysql.ResultSetHeader>(
         'INSERT INTO books (title, author, price) VALUES (?, ?, ?)',
