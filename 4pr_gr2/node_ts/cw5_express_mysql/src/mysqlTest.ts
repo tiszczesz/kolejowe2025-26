@@ -1,7 +1,8 @@
-import {connection,getBooks} from './MySqlRepo.js';
+import {getConnection,getBooks} from './MySqlRepo.js';
 
 export async function testConnection() {
     try {
+        const connection = await getConnection();
         const [rows] = await connection.execute('SELECT NOW() AS now');
         console.log('Connection successful:', rows);
         connection.end();
