@@ -10,6 +10,7 @@
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="Views\" />
+    <Folder Include="Views\Lake\" />
     <Folder Include="Views\Library\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
