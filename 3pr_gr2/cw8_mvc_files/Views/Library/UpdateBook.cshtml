@@ -1,0 +1,22 @@
+﻿@model Models.Book
+
+<h2>Edytuj książkę</h2>
+<form asp-action="UpdateBook">
+    <div class="row m-2">
+        <input type="hidden" asp-for="Id" />
+        <label class="col-3 text-end" asp-for="Title"></label>
+        <input class="col-6" asp-for="Title" />
+        <span asp-validation-for="Title" class="text-danger col-3"></span>
+    </div>
+    <div class="row m-2">
+        <label class="col-3 text-end" asp-for="Author"></label>
+        <input class="col-6" asp-for="Author" />
+        <span asp-validation-for="Author" class="text-danger col-3"></span>
+    </div>
+    <div class="row m-2">
+        <label class="col-3 text-end" asp-for="YearPublished"></label>
+        <input class="col-6" asp-for="YearPublished" />
+        <span asp-validation-for="YearPublished" class="text-danger col-3"></span>
+    </div>
+    <input type="submit" value="Zaktualizuj książkę" class="btn btn-primary mt-2 col-6 offset-3" />
+</form>
