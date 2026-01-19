@@ -32,7 +32,15 @@ public class FileMoviesRepo : IMoviesRepo
 
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+        var movies = LoadFromFile();
+        var movieToDelete = movies.Find(m => m.Id == id);
+        if (movieToDelete != null)
+        {
+            //w liscie znalazlismy film do usuniecia
+            movies.Remove(movieToDelete);
+            //zapisz zaktualizowana liste do pliku
+            SaveToFile(movies);
+        }
     }
 
     public List<Movie> GetAll()

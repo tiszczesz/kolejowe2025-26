@@ -23,7 +23,10 @@
                 <td>@movie.Title</td>
                 <td>@movie.Director</td>
                 <td>@movie.Year</td>
-                <td></td>
+                <td>
+                    <a asp-action="DeleteMovie" asp-route-id="@movie.Id" class="btn btn-danger btn-sm">Usuń</a>
+                    <a asp-action="UpdateMovie" asp-route-id="@movie.Id" class="btn btn-primary btn-sm">Edytuj</a>
+                </td>
             </tr>
         }
     </tbody>
