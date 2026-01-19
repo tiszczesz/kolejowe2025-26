@@ -11,16 +11,21 @@
         </tr>
     </thead>
     <tbody>
-        @{int lp = 0;}
+        @{
+            int lp = 0;
+        }
         @foreach (var book in Model)
         {
-            
+
             <tr>
                 <td>@(++lp)</td>
                 <td>@book.Title</td>
                 <td>@book.Author</td>
                 <td>@book.YearPublished</td>
-                <td></td>
+                <td>
+                    <a asp-action="DeleteBook" asp-route-id="@book.Id" class="btn btn-danger btn-sm">Usuń</a>
+                    <a asp-action="UpdateBook" asp-route-id="@book.Id" class="btn btn-primary btn-sm">Edytuj</a>
+                </td>
             </tr>
         }
     </tbody>
