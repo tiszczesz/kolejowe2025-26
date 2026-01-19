@@ -40,5 +40,28 @@ namespace cw7_mvc_file.Controllers
             _moviesRepo.Delete(id);
             return RedirectToAction("List");
         }
+        [HttpGet]
+        public IActionResult UpdateMovie(int id)
+        {
+            var movie = _moviesRepo.GetById(id);
+            if (movie == null)
+            {
+                return RedirectToAction("List");
+            }
+            return View(movie);
+        }
+        [HttpPost]
+        public IActionResult UpdateMovie(Movie movie)
+        {            
+            if (!ModelState.IsValid)
+            {
+                // If the model state is invalid, redisplay the form with validation errors
+                return View();
+            }
+            //ZAPISUJEMY ZMIANY
+            //wracamy do listy filmów
+            _moviesRepo.Update(movie);
+            return RedirectToAction("List");
+        }
     }
 }

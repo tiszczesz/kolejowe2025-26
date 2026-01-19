@@ -55,6 +55,16 @@ public class FileMoviesRepo : IMoviesRepo
 
     public void Update(Movie movie)
     {
-        throw new NotImplementedException();
+        var movies = LoadFromFile();
+        var movieToUpdate = movies.Find(m => m.Id == movie.Id);
+        if (movieToUpdate != null)
+        {
+            //aktualizujemy dane filmu
+            movieToUpdate.Title = movie.Title;
+            movieToUpdate.Director = movie.Director;
+            movieToUpdate.Year = movie.Year;
+            //zapisz zaktualizowana liste do pliku
+            SaveToFile(movies);
+        }
     }
 }
