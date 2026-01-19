@@ -8,4 +8,5 @@ public interface IBooksRepo
     public void AddBook(Book book);
     public Book? GetBookById(int id);
     public void UpdateBook(Book book);
+    public void DeleteBook(int id);
 }

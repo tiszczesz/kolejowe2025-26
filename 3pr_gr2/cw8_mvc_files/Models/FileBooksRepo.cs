@@ -25,7 +25,9 @@ public class FileBooksRepo : IBooksRepo
 
     public Book? GetBookById(int id)
     {
-        throw new NotImplementedException();
+        var books = GetBooks();
+        return books.Find(b => b.Id == id);
+       // return books.FirstOrDefault(b => b.Id == id);
     }
 
     public List<Book> GetBooks()
@@ -53,7 +55,16 @@ public class FileBooksRepo : IBooksRepo
 
     public void UpdateBook(Book book)
     {
-        throw new NotImplementedException();
+        var books = GetBooks(); // Load existing books from file
+        var existingBook = books.Find(b => b.Id == book.Id);// Find the book to update
+        if (existingBook != null)
+        {
+            // Update book details
+            existingBook.Title = book.Title;
+            existingBook.Author = book.Author;
+            existingBook.YearPublished = book.YearPublished;
+            SaveBooks(books);
+        }
     }
     private int GetNextId()
     {
@@ -61,5 +72,13 @@ public class FileBooksRepo : IBooksRepo
         if (books.Count == 0)
             return 1;
         return books.Max(b => b.Id) + 1;
+    }
+
+    public void DeleteBook(int id)
+    {
+        // Load existing books from file
+        // Find the book to delete
+        // Remove the book from the list
+        // Save the updated list back to the file
     }
 }
