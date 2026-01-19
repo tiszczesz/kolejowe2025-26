@@ -77,8 +77,16 @@ public class FileBooksRepo : IBooksRepo
     public void DeleteBook(int id)
     {
         // Load existing books from file
+        var books = GetBooks();
         // Find the book to delete
+        var bookToDelete = books.Find(b => b.Id == id);
         // Remove the book from the list
-        // Save the updated list back to the file
+        if (bookToDelete != null)
+        {
+            books.Remove(bookToDelete);  
+            // Save the updated list back to the file 
+            SaveBooks(books);         
+        }
+        
     }
 }
