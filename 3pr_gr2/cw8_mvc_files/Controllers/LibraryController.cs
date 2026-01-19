@@ -20,7 +20,16 @@ namespace cw8_mvc_files.Controllers
         [HttpGet]
         public IActionResult AddBook()
         {
+            //aby wywołaC widok z formularzem
             return View();
+        }
+        [HttpPost]
+        public IActionResult AddBook(Book book)
+        {
+            //aby odebrać dane z formularza
+            //dodać książkę do repozytorium
+            _booksRepo.AddBook(book);
+            return RedirectToAction("List");
         }
 
     }

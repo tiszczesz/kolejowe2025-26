@@ -1,1 +1,7 @@
-﻿<h2>Dodaj książkę</h2>
+﻿@model Models.Book
+<h2>Dodaj książkę</h2>
+<form asp-action="AddBook">
+<div class="row m-2">
+    <label asp-for="Title"></label>
+</div>
+</form>
