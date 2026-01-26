@@ -28,7 +28,14 @@ public class SqliteBooksRepo : IBooksRepo
 
     public void DeleteBook(int id)
     {
-        throw new NotImplementedException();
+        using var conn = new SqliteConnection(_connectionString);
+        //obiekt zarzadzajacy komenda SQL
+        using var cmd = conn.CreateCommand();
+        cmd.CommandText = "DELETE FROM Books "+
+            $"WHERE id = {id}";
+        conn.Open();
+        cmd.ExecuteNonQuery();
+        conn.Close();
     }
 
     public Book? GetBookById(int id)
