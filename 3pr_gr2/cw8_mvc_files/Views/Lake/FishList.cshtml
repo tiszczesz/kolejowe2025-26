@@ -1,13 +1,29 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model List<cw8_mvc_files.Models.Fish>
 <h1>Lista ryb w jeziorze</h1>
-<ul>
-    <li>Leszcz</li>
-    <li>Szczupak</li>
-    <li>Węgorz</li>
-    <li>Płoć</li>
-    <li>Karaś</li>
-</ul>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nazwa</th>
+            <th>Gatunek</th>
+            <th>Wiek (lata)</th>
+            <th> ----- </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var fish in Model)
+        {
+            <tr>
+                <td>@fish.Id</td>
+                <td>@fish.Name</td>
+                <td>@fish.Species</td>
+                <td>@fish.Age</td>
+                <td>
+                    <a class="btn btn-danger" asp-action="DeleteFish" asp-route-id="@fish.Id">Usuń</a>
+                    <a class="btn btn-warning" asp-action="EditFish" asp-route-id="@fish.Id">Edytuj</a>
+                    </td>
+            </tr>
+        }
+    </tbody>
+</table>

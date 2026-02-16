@@ -1,0 +1,26 @@
+﻿@model cw8_mvc_files.Models.Fish
+
+<h1>Dodaj rybę do jeziora</h1>
+
+<form method="post" asp-action="AddFish">
+    <div class="row m-2">
+        <label class="col-3 text-end" asp-for="Name"></label>
+        <input asp-for="Name" class="col-6" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="row m-2">
+        <label class="col-3 text-end" asp-for="Species"></label>
+        <input asp-for="Species" class="col-6" />
+        <span asp-validation-for="Species" class="text-danger"></span>
+    </div>
+
+    <div class="row m-2">
+        <label class="col-3 text-end" asp-for="Age"></label>
+        <input class="col-6" asp-for="Age" />
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="offset-3 btn btn-primary">Dodaj rybę</button>
+    <a asp-action="FishList" class="btn btn-secondary">Anuluj</a>
+</form>
