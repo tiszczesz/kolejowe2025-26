@@ -51,7 +51,8 @@ public class SqliteBooksRepo : IBooksRepo
         if (!reader.HasRows)
         {
             return null; //brak ksiazki o podanym id
-        }      
+        } 
+        reader.Read();     
         var book = new Book
         {
             Id = reader.GetInt32(0),
@@ -91,6 +92,19 @@ public class SqliteBooksRepo : IBooksRepo
 
     public void UpdateBook(Book book)
     {
-        throw new NotImplementedException();
+          using var conn = new SqliteConnection(_connectionString);
+        //obiekt zarzadzajacy komenda SQL
+        //using var cmd = conn.CreateCommand();
+        using var cmd = new SqliteCommand();
+        cmd.Connection = conn;
+        cmd.CommandText = @"UPDATE Books SET title = @title, author = @author,
+                   yearPublished = @yearPublished "+
+            $"WHERE id = {book.Id}";
+        cmd.Parameters.AddWithValue("@title", book.Title);
+        cmd.Parameters.AddWithValue("@author", book.Author);
+        cmd.Parameters.AddWithValue("@yearPublished", book.YearPublished);
+        conn.Open();
+        cmd.ExecuteNonQuery();
+        conn.Close();
     }
 }

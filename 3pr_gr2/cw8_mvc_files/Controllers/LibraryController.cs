@@ -41,6 +41,7 @@ namespace cw8_mvc_files.Controllers
             _booksRepo.DeleteBook(id);
             return RedirectToAction("List");
         }
+        [HttpGet]
         public IActionResult UpdateBook(int id)
         {
             var book = _booksRepo.GetBookById(id);
