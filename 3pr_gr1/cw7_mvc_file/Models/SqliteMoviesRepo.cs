@@ -12,7 +12,16 @@ public class SqliteMoviesRepo : IMoviesRepo
     }
     public void AddMovie(Movie movie)
     {
-        throw new NotImplementedException();
+        using var connection = new SqliteConnection(_connectionString);
+        using var command = connection.CreateCommand();
+        command.CommandText = @"INSERT INTO Movies (title, director, year) 
+                        VALUES (@title, @director, @year)";
+        command.Parameters.AddWithValue("@title", movie.Title);
+        command.Parameters.AddWithValue("@director", movie.Director);
+        command.Parameters.AddWithValue("@year", movie.Year);
+        connection.Open();
+        command.ExecuteNonQuery();
+        connection.Close();
     }
 
     public void Delete(int id)
@@ -22,10 +31,25 @@ public class SqliteMoviesRepo : IMoviesRepo
 
     public List<Movie> GetAll()
     {
+        //obiekt connection do bazy danych, korzystamy z using, zeby po zakonczeniu uzywania polaczenia bylo ono zamkniete
         using var connection = new SqliteConnection(_connectionString);
+        //tworzymy obiekt command, ktory pozwala nam wykonac zapytanie do bazy danych
+        using var command = connection.CreateCommand();
+        //zapytanie SQL, ktore chcemy wykonac
+        command.CommandText = "SELECT id, title, director,year FROM Movies";
+        //otwieramy polaczenie z baza danych
+        connection.Open();
+        using var reader = command.ExecuteReader();
         var movies = new List<Movie>();
-
-
+        while (reader.Read())
+        {
+            movies.Add(new Movie{
+                Id = reader.GetInt32(0),
+                Title = reader.GetString(1),
+                Director = reader.GetString(2),
+                Year = reader.GetInt32(3)
+            });
+        } 
         return movies;
     }
 
