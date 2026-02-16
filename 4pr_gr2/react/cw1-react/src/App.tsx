@@ -13,6 +13,8 @@ function App() {
       <Component1 />
       <MyInfo myColor='green' content='ala ma kota' />
       <MyInfo myColor='blue' content='ala ma psa' />
+      <MyInfo myColor='black' content='ala ma psa' myOpacity={0.6} />
+      <MyInfo myColor='red' content='ala ma psa' myOpacity={0.3}/>
       <ul>
         <li>asdasd</li>
         <li>asdasd</li>
