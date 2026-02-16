@@ -4,7 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 //builder.Services.AddScoped<IMoviesRepo, FileMoviesRepo>();
 //builder.Services.AddTransient<IMoviesRepo, FileMoviesRepo>();
-builder.Services.AddSingleton<IMoviesRepo, FileMoviesRepo>();
+builder.Services.AddSingleton<IMoviesRepo, SqliteMoviesRepo>();
 var app = builder.Build();
 app.UseStaticFiles();
 //app.MapGet("/", () => "Hello World!");
