@@ -6,12 +6,14 @@ type Props = {
     color?:string;
 }
 
-const Rectangle = ({width,height,color}: Props) => {
+const Rectangle = (props: Props) => {
   return (
     <div style={{
-        width:`${width}px`,
-        height:`${height}px`,
-        backgroundColor:color
+        width:`${props.width}px`,
+        height:`${props.height}px`,
+        backgroundColor:props.color || 'white',
+        border:'1px solid black', 
+        margin:'10px'      
     }}></div>
   )
 }
