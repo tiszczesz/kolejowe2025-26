@@ -1,6 +1,7 @@
 import './App.css'
 import Component1 from './components/Component1';
 import MyInfo from './components/MyInfo';
+import Rectangle from './components/Rectangle';
 
 function App() {
 
@@ -20,6 +21,10 @@ function App() {
         <li>asdasd</li>
         <li>asdasd</li>
       </ul>
+      <hr />
+      <Rectangle width={200} height={100} color='red' />
+      <Rectangle width={100} height={60} color='green' />
+      <Rectangle width={30} height={120} color='blue' />
     </>
   )
 }
