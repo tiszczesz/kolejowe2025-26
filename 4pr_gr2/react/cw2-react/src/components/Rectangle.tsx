@@ -42,6 +42,7 @@ const Rectangle = (props: Props) => {
                 border: '1px solid black',
                 height: '100px',
                 width: `${width}px`,
+                cursor: 'pointer',
             }}
             onMouseDown={(e) => handleMouseDown(e)}
             onContextMenu={(e) => e.preventDefault()}
