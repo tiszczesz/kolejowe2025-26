@@ -1,6 +1,7 @@
 
 import './App.css'
 import Circle from './components/Circle'
+import Rectangle from './components/Rectangle'
 
 function App() {
   
@@ -11,6 +12,9 @@ function App() {
       <Circle size={50}/>
       <Circle size={100} color='green'/>
      </div>
+     <hr />
+     <Rectangle myColr='pink'/>
+     <Rectangle />
     </>
   )
 }
