@@ -1,5 +1,5 @@
 import { Router, type Request,type Response } from "express";
-import { getUserById } from "./SqliteRepo.js";
+import { getUserById,createUser,getAllUsers } from "./SqliteRepo.js";
 import fs from 'fs'
 import { users } from "./data/users.js";
 
@@ -27,4 +27,18 @@ router.get("/users/:id",(req:Request,res:Response)=>{
     } else {
         res.status(404).json({message:"User not found"})
     }
+});
+router.post("/users",(req:Request,res:Response)=>{
+    const {name,email} = req.body;
+    if(name && email){
+        const newUser = createUser(name,email);
+        res.status(201).json(newUser);
+    }
+    else {
+        res.status(400).json({message:"Name and email are required"})
+    }
+})
+router.get("/allusers",(req:Request,res:Response)=>{
+    const allUsers = getAllUsers();
+    res.json(allUsers)  
 });
