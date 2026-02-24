@@ -1,4 +1,5 @@
 import { Router, type Request,type Response } from "express";
+import { getUserById } from "./SqliteRepo.js";
 import fs from 'fs'
 import { users } from "./data/users.js";
 
@@ -17,4 +18,13 @@ router.get("/index",(req:Request,res:Response)=>{
 });
 router.get("/users",(req:Request,res:Response)=>{
     res.json(users)
+});
+router.get("/users/:id",(req:Request,res:Response)=>{
+    const id:number =  parseInt(req.params.id as string); ;
+    const user = getUserById(id);
+    if(user){
+        res.json(user)
+    } else {
+        res.status(404).json({message:"User not found"})
+    }
 });

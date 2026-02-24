@@ -1,14 +1,13 @@
 import Database from "better-sqlite3";
 import path from "path";
+import {type User } from "./data/users.js";
 import { fileURLToPath } from "url";
-interface User {
-    id: number;
-    name: string;
-    email: string;
-}
+
 
 const __filename = fileURLToPath(import.meta.url);
+console.log("__filename: ", __filename);
 const __dirname = path.dirname(__filename);
+console.log("__dirname: ", __dirname);
 const dbPath = path.join(__dirname,'..', "appUsers.db");
 console.log("dbPath: ", dbPath);
 
