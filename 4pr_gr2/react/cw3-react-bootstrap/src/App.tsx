@@ -1,3 +1,5 @@
+
+import  {type MouseEvent } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './App.css'
@@ -5,6 +7,10 @@ import Info from './components/Info';
 const list = ["jeden", "dwa", "trzy"];
 function App() {
   
+
+  function handleClick(event: MouseEvent<HTMLButtonElement>): void {
+    console.log("kliknięto przycisk");
+  }
 
   return (
     <>
@@ -21,6 +27,11 @@ function App() {
           <li>ddd</li>
           <li>eee</li>
         </ol>
+        <button 
+        onClick={handleClick}
+         className="btn btn-primary">
+          Kliknij mnie
+        </button>
         <Info />
       </main>
     </>
