@@ -1,0 +1,22 @@
+﻿@model Student
+<h1>Dodaj studenta</h1>
+<form method="post" asp-action="AddStudent">
+    <div class="row m-2">
+        <label asp-for="FirstName" class="col-3 text-end"></label>
+        <input asp-for="FirstName" class="col-6">
+        <span asp-validation-for="FirstName" class="col-3 text-danger"></span>
+    </div>
+    <div class="row m-2">
+        <label asp-for="LastName" class="col-3 text-end"></label>
+        <input asp-for="LastName" class="col-6">
+        <span asp-validation-for="LastName" class="col-3 text-danger"></span>
+    </div>
+    <div class="row m-2">
+        <label asp-for="DateOf" class="col-3 text-end"></label>
+        <input type="date" asp-for="DateOf" class="col-6">
+        <span asp-validation-for="DateOf" class="col-3 text-danger"></span>
+    </div>
+    <div class="row m-2">
+        <input type="submit" value="Dodaj studenta" class="btn btn-primary col-6 offset-3">
+    </div>
+</form>
