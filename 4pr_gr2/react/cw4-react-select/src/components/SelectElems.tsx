@@ -4,14 +4,15 @@ import type { SizeOption } from "../data/sizes"
 type Props = {
   label: string,
   options: SizeOption[],
-  onChange: (value: string) => void,
+  handleOnChange: (value: string) => void,
 }
 
 const SelectElems = (props: Props) => {
   return (
     <div>
       <label>{props.label}</label>
-      <select >
+      <select onChange={(e) =>
+         props.handleOnChange(e.target.value)}>
         {props.options.map((option, index) => (
           <option key={index} value={option.value}>{option.name}</option>
         ))}

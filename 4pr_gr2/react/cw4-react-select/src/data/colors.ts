@@ -1,6 +1,7 @@
 import type { SizeOption } from "./sizes";
 
-export const colors:SizeOption[] = [
+export const colors: SizeOption[] = [
+    { name: "Black", value: "black" },
     { name: "White", value: "white" },
     { name: "Red", value: "#FF5733" },
     { name: "Green", value: "#33FF57" },
