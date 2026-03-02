@@ -31,6 +31,11 @@ namespace cw8_mysql.Controllers
             }
             return View(student);
         }
+        public ActionResult DeleteStudent(int id)
+        {
+            _studentRepo.DeleteStudent(id);
+            return RedirectToAction("List");
+        }
 
     }
 }

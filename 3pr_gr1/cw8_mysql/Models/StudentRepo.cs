@@ -42,6 +42,16 @@ public class StudentRepo
         conn.Open();
         cmd.ExecuteNonQuery();
         conn.Close();
-    }               
+    }    
+    public void DeleteStudent(int id)
+    {
+        var conn = new MySqlConnection(_connectionString);
+        var cmd = conn.CreateCommand();
+        cmd.CommandText = @"DELETE FROM students WHERE id = @id";
+        cmd.Parameters.AddWithValue("@id", id);
+        conn.Open();
+        cmd.ExecuteNonQuery();
+        conn.Close();
+    }           
 
 }

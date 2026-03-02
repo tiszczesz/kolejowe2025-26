@@ -19,7 +19,10 @@
                 <td>@student.FirstName</td>
                 <td>@student.LastName</td>
                 <td>@student.DateOf</td>
-                <td></td>
+                <td>
+                    <a asp-controller="MyStudents" asp-action="EditStudent" asp-route-id="@student.Id" class="btn btn-warning">Edytuj</a>
+                    <a asp-controller="MyStudents" asp-action="DeleteStudent" asp-route-id="@student.Id" class="btn btn-danger">Usuń</a>
+                </td>
             </tr>
         }
     </tbody>
