@@ -1,13 +1,20 @@
+using cw8_mysql.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace cw8_mysql.Controllers
 {
     public class MyStudentsController : Controller
     {
+        private StudentRepo _studentRepo;
+        public MyStudentsController(IConfiguration configuration)
+        {
+            _studentRepo = new StudentRepo(configuration);
+        }
         // GET: MyStudentsController
         public ActionResult List()
         {
-            return View();
+            var students = _studentRepo.GetStudents();
+            return View(students);
         }
 
     }

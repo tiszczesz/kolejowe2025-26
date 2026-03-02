@@ -32,7 +32,7 @@ USE `3pr_gr1_2026`;
 DROP TABLE IF EXISTS `students`;
 CREATE TABLE `students` (
   `id` int(11) NOT NULL,
-  `firstame` varchar(50) NOT NULL,
+  `firstname` varchar(50) NOT NULL,
   `lastname` varchar(50) NOT NULL,
   `date_of` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
