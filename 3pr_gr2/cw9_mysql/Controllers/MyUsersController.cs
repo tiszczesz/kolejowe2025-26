@@ -16,6 +16,26 @@ namespace cw9_mysql.Controllers
             var users = _usersRepo.GetUsers();
             return View(users);
         }
+        [HttpGet]
+        public ActionResult AddUser()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddUser(User user)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(user);
+            }
+            _usersRepo.AddUser(user);
+            return RedirectToAction("List");
+        }
+        public ActionResult DeleteUser(int id)
+        {
+            _usersRepo.DeleteUser(id);
+            return RedirectToAction("List");
+        }
 
     }
 }

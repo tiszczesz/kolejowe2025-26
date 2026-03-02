@@ -7,6 +7,7 @@
             <th>Imię</th>
             <th>Nazwisko</th>
             <th>Data utworzenia</th>
+            <th>Akcje</th>
         </tr>
     </thead>
     <tbody>
@@ -17,6 +18,9 @@
                 <td>@user.FirstName</td>
                 <td>@user.LastName</td>
                 <td>@user.CreatingDate.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a asp-controller="MyUsers" asp-action="DeleteUser" asp-route-id="@user.Id" class="btn btn-danger btn-sm">Usuń</a>
+                </td>
             </tr>
         }
     </tbody>
