@@ -21,17 +21,31 @@ function App() {
       <img src="vite.svg" alt="ikona" />
       <img src="vite.svg" alt="ikona" />
       <img src={react} alt="ikona" />
-      <img
+ 
+       <div>{4+4}</div>
+       <div>{new Date().toLocaleDateString()}</div>
+        <FakeComponent />
+        <SecondComponent />
+        <Motylek />
+    </>
+
+  )
+}
+function FakeComponent() {
+  return(<h2>To jest komponent FAKE</h2>)
+}
+function SecondComponent() {
+  return "To jest komponent SECOND"
+}
+function Motylek(){
+  return (     <img
        style={{
         width: "200px",
         padding: "20px",
         border: "2px solid black",
         margin: "20px"
        }}
-       src="motylek1.jpg" alt="ikona" />
-    </>
-
-  )
+       src="motylek1.jpg" alt="ikona" />)
 }
 
 
