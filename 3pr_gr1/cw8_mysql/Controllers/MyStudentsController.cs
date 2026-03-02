@@ -16,6 +16,21 @@ namespace cw8_mysql.Controllers
             var students = _studentRepo.GetStudents();
             return View(students);
         }
+        [HttpGet]
+        public ActionResult AddStudent()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddStudent(Student student)
+        {
+            if (ModelState.IsValid)
+            {
+                _studentRepo.AddStudent(student);
+                return RedirectToAction("List");
+            }
+            return View(student);
+        }
 
     }
 }

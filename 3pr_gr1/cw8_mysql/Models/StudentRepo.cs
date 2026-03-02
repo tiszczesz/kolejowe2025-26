@@ -30,5 +30,18 @@ public class StudentRepo
         }
         return students;
     }
+    public void AddStudent(Student student)
+    {
+        var conn = new MySqlConnection(_connectionString);
+        var cmd = conn.CreateCommand();
+        cmd.CommandText = @"INSERT INTO students (firstname, lastname, date_of) 
+                      VALUES (@firstname, @lastname, @date_of)";
+        cmd.Parameters.AddWithValue("@firstname", student.FirstName);
+        cmd.Parameters.AddWithValue("@lastname", student.LastName);
+        cmd.Parameters.AddWithValue("@date_of", student.DateOf?.ToDateTime(new TimeOnly(0, 0)));
+        conn.Open();
+        cmd.ExecuteNonQuery();
+        conn.Close();
+    }               
 
 }
