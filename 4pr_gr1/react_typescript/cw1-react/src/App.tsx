@@ -27,6 +27,8 @@ function App() {
         <FakeComponent />
         <SecondComponent />
         <Motylek />
+        <Motylek />
+        <Motylek />
     </>
 
   )
