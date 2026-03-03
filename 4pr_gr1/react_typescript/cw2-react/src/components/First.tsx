@@ -8,6 +8,7 @@ type Props = {
 };
 
 const First = (props: Props) => {
+  console.log("First renderuje się");
   return (
     <div>
       <h3>{props.title}</h3>
