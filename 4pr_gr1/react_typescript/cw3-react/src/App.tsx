@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import InputComp from './components/InputComp'
 import Input2Comp from './components/Input2Comp'
+import InputText from './components/InputText'
 
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
       <InputComp myValue='Ala ma kota' />
       <hr />
       <Input2Comp myValue='cc' />
+      <hr />
+      <InputText label='Podaj imię' />
     </>
   )
 }

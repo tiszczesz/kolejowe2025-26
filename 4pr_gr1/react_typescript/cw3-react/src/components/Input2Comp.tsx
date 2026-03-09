@@ -7,8 +7,10 @@ type Props = {
 const Input2Comp = (props: Props) => {
     const [info, setInfo] = useState(props.myValue || 'brak danych');
     function handleClick(e: MouseEvent<HTMLInputElement>): void {
-        console.log(e.currentTarget.value)
-        setInfo(e.currentTarget.value+' kliknięto');
+        const val = e.currentTarget.value;
+        console.log(val);
+        const newVal = 'kliknięto: ' + val;
+        setInfo(newVal);
     }
 
     return (
