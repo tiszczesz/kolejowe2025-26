@@ -5,16 +5,16 @@ import Input2Comp from './components/Input2Comp'
 
 
 function App() {
- 
- console.log('render App')
+
+  console.log('render App')
   return (
     <>
-     <h1>cw3-react z bootstrap</h1>
+      <h1>cw3-react z bootstrap</h1>
       <InputComp />
       <InputComp myValue='Ello' />
       <InputComp myValue='Ala ma kota' />
       <hr />
-      <Input2Comp myValue='ello'/>
+      <Input2Comp myValue='cc' />
     </>
   )
 }
