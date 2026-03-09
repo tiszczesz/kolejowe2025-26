@@ -32,7 +32,7 @@ USE `3pr_gr2_2026`;
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `firstame` varchar(50) NOT NULL,
+  `firstname` varchar(50) NOT NULL,
   `lastname` varchar(50) NOT NULL,
   `creating_date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -41,7 +41,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `firstame`, `lastname`, `creating_date`) VALUES
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `creating_date`) VALUES
 (1, 'Roman', 'Boman', '2026-02-23'),
 (2, 'Anna', 'Małecka', '2026-02-09'),
 (3, 'Magdalena', 'Wałecka', '2026-02-11'),

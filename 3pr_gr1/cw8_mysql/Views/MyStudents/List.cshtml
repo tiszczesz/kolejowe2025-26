@@ -1,1 +1,29 @@
-﻿<h1>Lista studentów</h1>
+﻿@model List<Student>
+<h1>Lista studentów</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Lp</th>            
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Data zapisu</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int lp = 0;}
+        @foreach(var student in Model){
+            lp++;
+            <tr>
+                <td>@lp</td>
+                <td>@student.FirstName</td>
+                <td>@student.LastName</td>
+                <td>@student.DateOf</td>
+                <td>
+                    <a asp-controller="MyStudents" asp-action="EditStudent" asp-route-id="@student.Id" class="btn btn-warning">Edytuj</a>
+                    <a asp-controller="MyStudents" asp-action="DeleteStudent" asp-route-id="@student.Id" class="btn btn-danger">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -27,6 +27,8 @@ function App() {
         <FakeComponent />
         <SecondComponent />
         <Motylek />
+        <Motylek />
+        <Motylek />
     </>
 
   )
@@ -38,7 +40,8 @@ function SecondComponent() {
   return "To jest komponent SECOND"
 }
 function Motylek(){
-  return (     <img
+  return (     
+  <img
        style={{
         width: "200px",
         padding: "20px",
