@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import InputComp from './components/InputComp'
+import Input2Comp from './components/Input2Comp'
 
 
 function App() {
@@ -12,6 +13,8 @@ function App() {
       <InputComp />
       <InputComp myValue='Ello' />
       <InputComp myValue='Ala ma kota' />
+      <hr />
+      <Input2Comp myValue='ello'/>
     </>
   )
 }
