@@ -4,11 +4,13 @@ import './App.css'
 import SelectElems from './components/SelectElems'
 import { colors } from './data/colors';
 import { useState } from 'react';
+import { textDec } from './data/textDec';
 
 function App() {
  const [selectedSize, setSelectedSize] = useState(sizes[0].value);
  const [selectedColor, setSelectedColor] = useState(colors[0].value);
  const [selectedWidth, setSelectedWidth] = useState(widths[0].value);
+ const [selectedTextDec, setSelectedTextDec] = useState(textDec[0].value);
   return (
     <>
       <div className='d-flex gap-3 m-3'>
@@ -30,14 +32,22 @@ function App() {
             handleOnChange={(value) => 
             setSelectedWidth(value)} />
         </div>
+        <div>
+          <SelectElems label='dekoracja tekstu'
+            options={textDec}
+            handleOnChange={(value) => 
+            setSelectedTextDec(value)} />
+        </div>
       </div>
       <p style={{ 
         fontSize: selectedSize, 
         color: selectedColor ,
-        width: selectedWidth
+        width: selectedWidth       
       }}
       >Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, deserunt nemo laboriosam tempore natus omnis ad eos similique explicabo ullam, beatae facere ipsa tempora repellat quis odio? Minus, a labore.</p>
-      <p>Ala ma kota</p>
+      <p style={{       
+        textDecoration: selectedTextDec
+      }}>Ala ma kota</p>
     </>
   )
 }
