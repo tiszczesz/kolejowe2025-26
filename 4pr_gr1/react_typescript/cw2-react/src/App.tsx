@@ -11,6 +11,7 @@ function App() {
         title="Inny tytuł"
         myColor="blue"
         content="ambitna treść komponentu"
+        isBordered={true}
       />
     </>
   );
