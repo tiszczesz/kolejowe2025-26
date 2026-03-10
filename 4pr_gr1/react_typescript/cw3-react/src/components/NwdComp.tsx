@@ -14,11 +14,22 @@ const NwdComp = () => {
         </label>
         <input className="col-6" type="number" id="b" />
       </div>
-      <input
-        className="btn btn-primary col-6 offset-3 m-2"
-        type="button"
-        value="Oblicz NWD"
-      />
+      <div className="row m-2">
+        <input
+          className="btn btn-primary col-6 offset-3"
+          type="button"
+          value="Oblicz NWD"
+        />
+      </div>
+      <div className="row offset-3 col-6"
+        style={{         
+          minHeight: "100px",          
+          border: "solid 1px black",
+          padding: "10px",
+          fontSize: "1.5em",
+          backgroundColor: "lightgray",
+        }}
+      ></div>
     </div>
   );
 };

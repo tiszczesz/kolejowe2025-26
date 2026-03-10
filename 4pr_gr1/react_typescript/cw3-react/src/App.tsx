@@ -3,6 +3,7 @@ import './App.css'
 import InputComp from './components/InputComp'
 import Input2Comp from './components/Input2Comp'
 import InputText from './components/InputText'
+import NwdComp from './components/NwdComp'
 
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
       <Input2Comp myValue='cc' />
       <hr />
       <InputText label='Podaj imię' />
+      <hr />
+      <NwdComp />
     </>
   )
 }
