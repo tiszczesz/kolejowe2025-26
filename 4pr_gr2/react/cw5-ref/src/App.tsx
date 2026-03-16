@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import CompWithChildren from './components/CompWithChildren';
+import FormRef from './components/FormRef';
 
 function App() {
 
@@ -9,10 +10,7 @@ function App() {
     <>
       <h1>Hello from cw5</h1>
       <CompWithChildren myColor="yellow">ala ma kota</CompWithChildren>
-      <CompWithChildren>
-        <h2>lorem ipsum</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
-      </CompWithChildren>
+  
       <CompWithChildren  myColor="lightgreen">
         <ul style={{ listStyleType: "none" }}>
           <li>item1</li>
@@ -20,6 +18,7 @@ function App() {
           <li>item3</li>
         </ul>
       </CompWithChildren>
+      <FormRef/>
 
     </>
   )
