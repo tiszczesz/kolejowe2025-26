@@ -13,8 +13,8 @@ function App() {
         <h2>lorem ipsum</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
       </CompWithChildren>
-      <CompWithChildren>
-        <ul>
+      <CompWithChildren bacColor='lightgreen'>
+        <ul style={{ listStyleType: "none" }}>
           <li>item1</li>
           <li>item2</li>
           <li>item3</li>
