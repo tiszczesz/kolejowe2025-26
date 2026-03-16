@@ -8,6 +8,7 @@ function FormRef() {
     const [formResult, setFormResult] = useState<string>("");
     function handleSubmit(e: SubmitEvent<HTMLFormElement>): void {
         e.preventDefault();
+        //sprawdzenie czy refy są ustawione
         if (firstNameRef.current && lastNameRef.current && ageRef.current) {
             const firstName = firstNameRef.current.value;
             const lastName = lastNameRef.current.value;
