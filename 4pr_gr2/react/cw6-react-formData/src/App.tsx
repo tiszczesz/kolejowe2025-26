@@ -1,8 +1,10 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import {type Movie, genres, movies, getLatestMovieId} from './data';
+import { useState } from 'react';
 
 function App() {
-
+  const [movieList, setMovieList] = useState<Movie[]>(movies);
 
   return (
     <>
