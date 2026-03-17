@@ -33,7 +33,9 @@ function App() {
                   <td>{movie.director}</td>
                   <td>{movie.releaseYear}</td>
                   <td>{movie.genre}</td>
-                  <td></td>
+                  <td>
+                    <button className='btn btn-danger'>Usuń</button>
+                  </td>
                 </tr>
               ))}
             </tbody>
