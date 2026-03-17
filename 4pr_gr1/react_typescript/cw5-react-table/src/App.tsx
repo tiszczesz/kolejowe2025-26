@@ -1,19 +1,75 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { type User, users, getLastUserId, roles } from "./data";
-import { useState } from "react";
+import { useState, type SubmitEvent } from "react";
 
 function App() {
   const [usersData, setUsersData] = useState<User[]>(users);
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [role, setRole] = useState<string>(roles[0]);
   let lp = 0;
+  function handleSubmit(e: SubmitEvent<HTMLFormElement>): void {
+    e.preventDefault();
+  }
+
   return (
     <>
       <h1 className="text-center mb-3">Zarządzanie użytkownikami</h1>
       <h4>Ilość użytkowników: {usersData.length}</h4>
       <main className="d-flex gap-2">
-        <section className="w-50">formuarz</section>
         <section className="w-50">
-          <table className="table table-striped">
+          <h2>Dodaj użytkownika</h2>
+          <form onSubmit={(e) => handleSubmit(e)} className="p-4 border border-secondary-subtle m-2">
+            <div className="mb-3">
+              <input className="form-control"
+                type="text"
+                placeholder="Podaj imię"
+                required
+                onChange={(e) => setFirstName(e.target.value)}
+                value={firstName}
+              />
+            </div>
+            <div className="mb-3">
+              <input className="form-control"
+                type="text"
+                placeholder="Podaj nazwisko"
+                required
+                onChange={(e) => setLastName(e.target.value)}
+                value={lastName}
+              />
+            </div>
+            <div className="mb-3">
+              <input className="form-control"
+                type="email"
+                placeholder="Podaj email"
+                required
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              />
+            </div>
+            <div className="mb-3">
+              <select className="form-select"
+                onChange={(e) => setRole(e.target.value)}
+                value={role}
+              >
+                {roles.map((r) => (
+                  <option key={r} value={r}>
+                    {r}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="m-2">
+              <button type="submit" className="btn btn-primary w-100" >
+                Dodaj użytkownika
+              </button>
+            </div>
+          </form>
+        </section>
+        <section className="w-50">
+          <table className="table table-striped m-2">
             <thead>
               <tr>
                 <th>Lp</th>
