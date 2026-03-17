@@ -4,6 +4,7 @@ import "./App.css";
 function App() {
   return (
     <>
+      <h1 className="text-center mb-3">Zarządzanie użytkownikami</h1>
       <main className="d-flex gap-2">
         <section className="w-50">formuarz</section>
         <section className="w-50">tabela</section>
