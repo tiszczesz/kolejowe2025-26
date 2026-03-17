@@ -4,6 +4,7 @@ import { type User, users, getLastUserId, roles } from "./data";
 import { useState, type SubmitEvent } from "react";
 
 function App() {
+  console.log("renderowanie komponentu App");
   const [usersData, setUsersData] = useState<User[]>(users);
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
@@ -12,6 +13,28 @@ function App() {
   let lp = 0;
   function handleSubmit(e: SubmitEvent<HTMLFormElement>): void {
     e.preventDefault();
+    //dodanie użytkownika do listy
+    const newUser: User = {
+      id: getLastUserId(usersData) + 1,
+      firstname: firstName,
+      lastname: lastName,
+      email: email,
+      role: role as "admin" | "user" | "guest",
+    };
+    //dodanie użytkownika do listy wymusza ponowne renderowanie komponentu i aktualizację tabeli
+    setUsersData([...usersData, newUser]);
+    //nie uzywać usersData.push(newUser) bo to nie zadziała, ponieważ
+    // React nie wykryje zmiany w tablicy i nie zrenderuje ponownie komponentu
+
+    //czyszczenie formularza
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setRole(roles[0]);
+  }
+
+  function handleDelete(user: User): void {
+    setUsersData(usersData.filter((u) => u.id !== user.id));
   }
 
   return (
@@ -21,9 +44,13 @@ function App() {
       <main className="d-flex gap-2">
         <section className="w-50">
           <h2>Dodaj użytkownika</h2>
-          <form onSubmit={(e) => handleSubmit(e)} className="p-4 border border-secondary-subtle m-2">
+          <form
+            onSubmit={(e) => handleSubmit(e)}
+            className="p-4 border border-secondary-subtle m-2"
+          >
             <div className="mb-3">
-              <input className="form-control"
+              <input
+                className="form-control"
                 type="text"
                 placeholder="Podaj imię"
                 required
@@ -32,7 +59,8 @@ function App() {
               />
             </div>
             <div className="mb-3">
-              <input className="form-control"
+              <input
+                className="form-control"
                 type="text"
                 placeholder="Podaj nazwisko"
                 required
@@ -41,7 +69,8 @@ function App() {
               />
             </div>
             <div className="mb-3">
-              <input className="form-control"
+              <input
+                className="form-control"
                 type="email"
                 placeholder="Podaj email"
                 required
@@ -50,7 +79,8 @@ function App() {
               />
             </div>
             <div className="mb-3">
-              <select className="form-select"
+              <select
+                className="form-select"
                 onChange={(e) => setRole(e.target.value)}
                 value={role}
               >
@@ -62,7 +92,7 @@ function App() {
               </select>
             </div>
             <div className="m-2">
-              <button type="submit" className="btn btn-primary w-100" >
+              <button type="submit" className="btn btn-primary w-100">
                 Dodaj użytkownika
               </button>
             </div>
@@ -94,7 +124,9 @@ function App() {
                   <td>{user.lastname}</td>
                   <td>{user.email}</td>
                   <td>{user.role}</td>
-                  <td></td>
+                  <td>
+                    <button className="btn btn-danger" onClick={()=>handleDelete(user)}>Usuń</button>
+                  </td>
                 </tr>
               ))}
             </tbody>
