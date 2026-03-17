@@ -31,6 +31,13 @@ function App() {
     form.reset();
   }
 
+  function handleDelete(movie: Movie): void {
+    //utworzenie nowej listy filmów bez usuwanego filmu
+    const newMovieList = movieList.filter(m => m.id !== movie.id);
+    //aktualizacja stanu movieList
+    setMovieList(newMovieList);
+  }
+
   return (
     <>
       <h1 className="text-center mb-2">Przegląd filmów</h1>
@@ -101,7 +108,7 @@ function App() {
                   <td>{movie.releaseYear}</td>
                   <td>{movie.genre}</td>
                   <td>
-                    <button className="btn btn-danger">Usuń</button>
+                    <button className="btn btn-danger" onClick={()=>handleDelete(movie)}>Usuń</button>
                   </td>
                 </tr>
               ))}
