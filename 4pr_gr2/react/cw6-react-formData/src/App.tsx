@@ -14,7 +14,7 @@ function App() {
         <section className='w-50'>Formularz</section>
         <section className='w-50'>
           <h2>Lista filmów ilość: {movieList.length}</h2>
-          <table className='table table-striped m-2'>
+          <table className='table table-success table-striped m-2'>
             <thead>
               <tr>
                 <th>Lp.</th>
