@@ -50,3 +50,12 @@ export const movies: Movie[] = [
         genre: "romans"
     }
 ];
+export const getLatestMovieId = (data: Movie[]) => {
+    let latestId = 0;
+    data.forEach(movie => {
+        if (movie.id > latestId) {
+            latestId = movie.id;
+        }
+    });
+    return latestId;
+}
