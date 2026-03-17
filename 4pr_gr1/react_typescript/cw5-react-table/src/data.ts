@@ -13,3 +13,13 @@ export const users: User[] = [
     { id: 6, name: "Alicja Kamińska", email: "alicja.kaminska@example.com", role: "admin" },
     
 ];
+export const roles = ["admin", "user", "guest"];
+export const getLastUserId = (): number => {
+    let maxId = 0;
+    users.forEach(user => {
+        if (user.id > maxId) {
+            maxId = user.id;
+        }
+    });
+    return maxId;
+};
