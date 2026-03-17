@@ -6,7 +6,7 @@ import { useState, type SubmitEvent } from "react";
 function App() {
   let lp = 1;
   const [movieList, setMovieList] = useState<Movie[]>(movies);
-  const [movie, setMovie] = useState<Movie | undefined>(undefined);
+  //const [movie, setMovie] = useState<Movie | undefined>(undefined);
   function handleSubmit(e: SubmitEvent<HTMLFormElement>): void {
     e.preventDefault();
     const form = e.currentTarget;
