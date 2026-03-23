@@ -13,8 +13,16 @@ namespace pojazdy_sol.Controllers
         // GET: HomeController
         public ActionResult Index()
         {
-            return View();
-        }
+            var locations = _sqlRepo.GetLocations();
+            var alerts = _sqlRepo.GetAlerts();
+            var viewModel = new LocationVM
+            {
+                Locations = locations,
+                Alerts = alerts
+            };
+            _sqlRepo.AddAlert();//losowy wpis do bazy danych, żeby było co wyświetlać
+            return View(viewModel);
+        }   
 
     }
 }
