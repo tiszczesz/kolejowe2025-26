@@ -6,12 +6,13 @@ import { useRef, useState, type SubmitEvent } from "react";
 function App() {
   let lp = 1;
   const [movieList, setMovieList] = useState<Movie[]>(movies);
+  const [editingMovieId, setEditingMovieId] = useState<number | null>(null);
   const titleRef = useRef<HTMLInputElement>(null);
   const directorRef = useRef<HTMLInputElement>(null);
   const releaseYearRef = useRef<HTMLInputElement>(null);
   const genreRef = useRef<HTMLSelectElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const [info, setInfo] = useState<string>("Dodaj film");
-  //const [movie, setMovie] = useState<Movie | undefined>(undefined);
   function handleSubmit(e: SubmitEvent<HTMLFormElement>): void {
     e.preventDefault();
     const form = e.currentTarget;
@@ -22,16 +23,36 @@ function App() {
     const director = formData.get("director") as string;
     const releaseYear = Number(formData.get("releaseYear")); //parseInt(formData.get("releaseYear") as string);
     const genre = formData.get("genre") as Movie["genre"];
-    //tworzenie nowego obiektu filmu
-    const newMovie: Movie = {
-      id: getLatestMovieId(movieList) + 1,
-      title,
-      director,
-      releaseYear,
-      genre,
-    };
-    //dodawanie nowego filmu do listy zmiana stanu movieList
-    setMovieList([...movieList, newMovie]);
+    //sprawdzenie czy edytujemy istniejący film czy dodajemy nowy
+    if (editingMovieId !== null) { //aktualizacja istniejącego filmu
+      const updatedMovie: Movie = {
+        id: editingMovieId,
+        title,
+        director,
+        releaseYear,
+        genre,
+      };
+      //utworzenie nowej listy filmów z zaktualizowanym filmem
+      const newMovieList = movieList.map((m) =>
+        m.id === editingMovieId ? updatedMovie : m,
+      );
+      //aktualizacja stanu movieList
+      setMovieList(newMovieList);
+      //resetowanie stanu edycji
+      setEditingMovieId(null);
+      setInfo("Dodaj film");
+    } else {
+      //tworzenie nowego obiektu filmu
+      const newMovie: Movie = {
+        id: getLatestMovieId(movieList) + 1,
+        title,
+        director,
+        releaseYear,
+        genre,
+      };
+      //dodawanie nowego filmu do listy zmiana stanu movieList
+      setMovieList([...movieList, newMovie]);
+    }
     //czyszczenie formularza
     form.reset();
   }
@@ -45,6 +66,8 @@ function App() {
 
   function handleUpdate(movie: Movie): void {
     setInfo("Edytuj film");
+    //ustawienie id filmu do edycji aby użyć go później do aktualizacji listy filmów
+    setEditingMovieId(movie.id);
     // Wypełnij formularz danymi filmu do edycji
     if (titleRef.current) {
       titleRef.current.value = movie.title;
@@ -58,7 +81,6 @@ function App() {
     if (genreRef.current) {
       genreRef.current.value = movie.genre;
     }
-    
   }
 
   return (
@@ -67,7 +89,7 @@ function App() {
       <main className="d-flex gap-2 p-3">
         <section className="w-50">
           <h2>{info}</h2>
-          <form onSubmit={(e) => handleSubmit(e)}>
+          <form onSubmit={(e) => handleSubmit(e)} ref={formRef}>
             <div className="mb-3">
               <input
                 ref={titleRef}
