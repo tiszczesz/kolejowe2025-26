@@ -1,11 +1,16 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { type Movie, genres, movies, getLatestMovieId } from "./data";
-import { useState, type SubmitEvent } from "react";
+import { useRef, useState, type SubmitEvent } from "react";
 
 function App() {
   let lp = 1;
   const [movieList, setMovieList] = useState<Movie[]>(movies);
+  const titleRef = useRef<HTMLInputElement>(null);
+  const directorRef = useRef<HTMLInputElement>(null);
+  const releaseYearRef = useRef<HTMLInputElement>(null);
+  const genreRef = useRef<HTMLSelectElement>(null);
+  const [info, setInfo] = useState<string>("Dodaj film");
   //const [movie, setMovie] = useState<Movie | undefined>(undefined);
   function handleSubmit(e: SubmitEvent<HTMLFormElement>): void {
     e.preventDefault();
@@ -38,15 +43,34 @@ function App() {
     setMovieList(newMovieList);
   }
 
+  function handleUpdate(movie: Movie): void {
+    setInfo("Edytuj film");
+    // Wypełnij formularz danymi filmu do edycji
+    if (titleRef.current) {
+      titleRef.current.value = movie.title;
+    }
+    if (directorRef.current) {
+      directorRef.current.value = movie.director;
+    }
+    if (releaseYearRef.current) {
+      releaseYearRef.current.value = movie.releaseYear.toString();
+    }
+    if (genreRef.current) {
+      genreRef.current.value = movie.genre;
+    }
+    
+  }
+
   return (
     <>
       <h1 className="text-center mb-2">Przegląd filmów</h1>
       <main className="d-flex gap-2 p-3">
         <section className="w-50">
-          <h2>Dodaj nowy film</h2>
+          <h2>{info}</h2>
           <form onSubmit={(e) => handleSubmit(e)}>
             <div className="mb-3">
               <input
+                ref={titleRef}
                 required
                 type="text"
                 placeholder="Tytuł filmu"
@@ -56,6 +80,7 @@ function App() {
             </div>
             <div className="mb-3">
               <input
+                ref={directorRef}
                 required
                 type="text"
                 placeholder="Reżyser"
@@ -65,6 +90,7 @@ function App() {
             </div>
             <div className="mb-3">
               <input
+                ref={releaseYearRef}
                 required
                 type="number"
                 placeholder="Rok premiery"
@@ -73,7 +99,7 @@ function App() {
               />
             </div>
             <div className="mb-3">
-              <select name="genre" className="form-select">
+              <select ref={genreRef} name="genre" className="form-select">
                 {genres.map((genre) => (
                   <option key={genre} value={genre}>
                     {genre}
@@ -82,7 +108,7 @@ function App() {
               </select>
             </div>
             <button type="submit" className="btn btn-primary w-100">
-              Dodaj film
+              {info}
             </button>
           </form>
         </section>
@@ -114,7 +140,12 @@ function App() {
                     >
                       Usuń
                     </button>
-                    <button className="btn btn-secondary">Edytuj</button>
+                    <button
+                      onClick={() => handleUpdate(movie)}
+                      className="btn btn-secondary"
+                    >
+                      Edytuj
+                    </button>
                   </td>
                 </tr>
               ))}
