@@ -24,7 +24,8 @@ function App() {
     const releaseYear = Number(formData.get("releaseYear")); //parseInt(formData.get("releaseYear") as string);
     const genre = formData.get("genre") as Movie["genre"];
     //sprawdzenie czy edytujemy istniejący film czy dodajemy nowy
-    if (editingMovieId !== null) { //aktualizacja istniejącego filmu
+    if (editingMovieId !== null) {
+      //aktualizacja istniejącego filmu
       const updatedMovie: Movie = {
         id: editingMovieId,
         title,
@@ -33,8 +34,9 @@ function App() {
         genre,
       };
       //utworzenie nowej listy filmów z zaktualizowanym filmem
-      const newMovieList = movieList.map((m) =>
-        m.id === editingMovieId ? updatedMovie : m,
+      const newMovieList = movieList.map(
+        (m) => (m.id === editingMovieId ? updatedMovie : m), //gdy id filmu z listy jest równe id filmu do edycji to zwróć
+        // zaktualizowany film, w przeciwnym razie zwróć oryginalny film
       );
       //aktualizacja stanu movieList
       setMovieList(newMovieList);
