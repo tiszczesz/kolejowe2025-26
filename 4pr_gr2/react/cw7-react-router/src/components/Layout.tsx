@@ -1,6 +1,4 @@
-import { NavLink, Outlet } from "react-router"
-
-
+import { NavLink, Outlet } from "react-router";
 
 const Layout = () => {
   return (
@@ -16,9 +14,16 @@ const Layout = () => {
       <main>
         <Outlet />
       </main>
-      <footer>&copy; 2026 My App. All rights reserved.</footer>
+      <footer
+        style={{
+          position: "absolute",
+          bottom: 0,
+        }}
+      >
+        &copy; 2026 My App. All rights reserved.
+      </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
