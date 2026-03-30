@@ -10,19 +10,17 @@ function App() {
   const [lastName, setLastName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [role, setRole] = useState<string>(roles[0]);
+  const [info, setInfo] = useState<string>("Dodaj użytkownika");
   let lp = 0;
   function handleSubmit(e: SubmitEvent<HTMLFormElement>): void {
     e.preventDefault();
     //dodanie użytkownika do listy
-    const newUser: User = {
-      id: getLastUserId(usersData) + 1,
-      firstname: firstName,
-      lastname: lastName,
-      email: email,
-      role: role as "admin" | "user" | "guest",
-    };
-    //dodanie użytkownika do listy wymusza ponowne renderowanie komponentu i aktualizację tabeli
-    setUsersData([...usersData, newUser]);
+    if (info === "Dodaj użytkownika") {
+      AddNewUser();
+    } else {
+      UpdateUser();
+      setInfo("Dodaj użytkownika");
+    }
     //nie uzywać usersData.push(newUser) bo to nie zadziała, ponieważ
     // React nie wykryje zmiany w tablicy i nie zrenderuje ponownie komponentu
 
@@ -33,8 +31,40 @@ function App() {
     setRole(roles[0]);
   }
 
+  function AddNewUser() {
+    const newUser: User = {
+      id: getLastUserId(usersData) + 1,
+      firstname: firstName,
+      lastname: lastName,
+      email: email,
+      role: role as "admin" | "user" | "guest",
+    };
+    //dodanie użytkownika do listy wymusza ponowne renderowanie komponentu i aktualizację tabeli
+    setUsersData([...usersData, newUser]);
+  }
+  function UpdateUser() {
+    const updatedUser: User = {
+      id: usersData.find((u) => u.email === email)?.id || 0,
+      firstname: firstName,
+      lastname: lastName,
+      email: email,
+      role: role as "admin" | "user" | "guest",
+    };
+    setUsersData(
+      usersData.map((u) => (u.id === updatedUser.id ? updatedUser : u)),
+    );
+  }
+
   function handleDelete(user: User): void {
     setUsersData(usersData.filter((u) => u.id !== user.id));
+  }
+
+  function handleUpdate(user: User): void {
+    setFirstName(user.firstname);
+    setLastName(user.lastname);
+    setEmail(user.email);
+    setRole(user.role);
+    setInfo("Aktualizuj");
   }
 
   return (
@@ -43,7 +73,7 @@ function App() {
       <h4>Ilość użytkowników: {usersData.length}</h4>
       <main className="d-flex gap-2">
         <section className="w-50">
-          <h2>Dodaj użytkownika</h2>
+          <h2>{info}</h2>
           <form
             onSubmit={(e) => handleSubmit(e)}
             className="p-4 border border-secondary-subtle m-2"
@@ -93,7 +123,7 @@ function App() {
             </div>
             <div className="m-2">
               <button type="submit" className="btn btn-primary w-100">
-                Dodaj użytkownika
+                {info}
               </button>
             </div>
           </form>
@@ -124,8 +154,19 @@ function App() {
                   <td>{user.lastname}</td>
                   <td>{user.email}</td>
                   <td>{user.role}</td>
-                  <td>
-                    <button className="btn btn-danger" onClick={()=>handleDelete(user)}>Usuń</button>
+                  <td className="d-flex gap-1">
+                    <button
+                      className="btn btn-outline-danger"
+                      onClick={() => handleDelete(user)}
+                    >
+                      Usuń
+                    </button>
+                    <button
+                      className="btn btn-outline-secondary"
+                      onClick={() => handleUpdate(user)}
+                    >
+                      Aktualizuj
+                    </button>
                   </td>
                 </tr>
               ))}
