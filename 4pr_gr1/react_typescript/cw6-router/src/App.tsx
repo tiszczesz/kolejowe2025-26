@@ -6,6 +6,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import PageNotFound from "./pages/PageNotFound";
+import MyForm1 from "./pages/MyForm1";
+import FotoGallery from "./pages/FotoGallery";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,8 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: "about", element: <About /> },
       { path: "contact", element: <Contact /> },
+      { path: "form1", element: <MyForm1 /> },
+      { path: "galeria", element: <FotoGallery /> },
       { path: "*", element: <PageNotFound /> },
     ],
   },

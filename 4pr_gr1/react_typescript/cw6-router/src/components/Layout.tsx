@@ -19,6 +19,12 @@ function Layout({}: Props) {
           <NavLink className="nav-link" to="/contact">
             Contact
           </NavLink>
+          <NavLink className="nav-link" to="/form1">
+            Formularz 1
+          </NavLink>
+          <NavLink className="nav-link" to="/galeria">
+            Galeria zdjęć
+          </NavLink>
         </nav>
       </header>
       <main className="container mt-3">
