@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { NavLink, Outlet } from "react-router";
 
 type Props = {};
 
@@ -6,9 +6,22 @@ function Layout({}: Props) {
   return (
     <>
       <header>
-        <nav></nav>
+        <nav
+          className="d-flex gap-3 p-3"
+          style={{ backgroundColor: "#c4bfbf" }}
+        >
+          <NavLink className="nav-link" to="/">
+            Home
+          </NavLink>
+          <NavLink className="nav-link" to="/about">
+            About
+          </NavLink>
+          <NavLink className="nav-link" to="/contact">
+            Contact
+          </NavLink>
+        </nav>
       </header>
-      <main>
+      <main className="container mt-3">
         <Outlet />
       </main>
       <footer
