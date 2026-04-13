@@ -1,8 +1,8 @@
 import { NavLink, Outlet } from "react-router";
 
-type Props = {};
 
-function Layout({}: Props) {
+
+function Layout() {
   return (
     <>
       <header>
@@ -30,7 +30,7 @@ function Layout({}: Props) {
       <main className="container mt-3">
         <Outlet />
       </main>
-      <footer
+      {/* <footer
         style={{
           padding: "10px",
           position: "absolute",
@@ -42,7 +42,7 @@ function Layout({}: Props) {
         }}
       >
         &copy; {new Date().getFullYear()} My App. All rights reserved.
-      </footer>
+      </footer> */}
     </>
   );
 }
