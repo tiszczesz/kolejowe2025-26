@@ -26,12 +26,17 @@ public class RepoSqlite : IRepoSqlite
         conn.Open();
         cmd.ExecuteNonQuery();
         conn.Close();
-
     }
 
     public void DeleteUser(int id)
     {
-        throw new NotImplementedException();
+        using var conn = new SqliteConnection(_connectionString);
+        using var cmd = conn.CreateCommand();
+        cmd.CommandText = "DELETE FROM Users WHERE id = @id";
+        cmd.Parameters.AddWithValue("@id", id);
+        conn.Open();
+        cmd.ExecuteNonQuery();
+        conn.Close();
     }
 
     public Role? GetRole(int id)
@@ -89,6 +94,15 @@ public class RepoSqlite : IRepoSqlite
 
     public void UpdateUser(User user)
     {
-        throw new NotImplementedException();
+        using var conn = new SqliteConnection(_connectionString);
+        using var cmd = conn.CreateCommand();
+        cmd.CommandText = "UPDATE Users SET name = @name, email = @email, role_id = @role_id WHERE id = @id";
+        cmd.Parameters.AddWithValue("@name", user.Name);
+        cmd.Parameters.AddWithValue("@email", user.Email);
+        cmd.Parameters.AddWithValue("@role_id", user.RoleId);
+        cmd.Parameters.AddWithValue("@id", user.Id);
+        conn.Open();
+        cmd.ExecuteNonQuery();
+        conn.Close();
     }
 }
