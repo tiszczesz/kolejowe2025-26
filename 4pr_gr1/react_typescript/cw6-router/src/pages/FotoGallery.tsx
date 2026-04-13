@@ -9,36 +9,51 @@ const FotoGallery = () => {
   const [animals, setAnimals] = useState(true);
   const [cars, setCars] = useState(true);
   console.log(flowers, animals, cars);
+  console.log(imagesList);
+  function handleClick(id: number): void {
+    const newList = imagesList.map((image) =>
+      image.id === id ? { ...image, downloads: image.downloads + 1 } : image)
+    setImagesList(newList);
+  }
+
   return (
     <>
       <h1>Kategorie zdjęć</h1>
       <section className='d-flex gap-4'>
         <div className="form-check form-switch">
-          <input id='flowers' className="form-check-input" type="checkbox" checked={flowers} onChange={() => setFlowers(!flowers)} />
+          <input id='flowers' className="form-check-input" type="checkbox"
+            checked={flowers} onChange={() => setFlowers(!flowers)} />
           <label className="form-check-label" htmlFor='flowers' >Kwiaty</label>
         </div>
         <div className="form-check form-switch">
-          <input id='animals' className="form-check-input" type="checkbox" checked={animals} onChange={() => setAnimals(!animals)} />
+          <input id='animals' className="form-check-input" type="checkbox"
+            checked={animals} onChange={() => setAnimals(!animals)} />
           <label className="form-check-label" htmlFor='animals' >Zwierzęta</label>
         </div>
         <div className="form-check form-switch">
-          <input id='cars' className="form-check-input" type="checkbox" checked={cars} onChange={() => setCars(!cars)} />
+          <input id='cars' className="form-check-input" type="checkbox"
+            checked={cars} onChange={() => setCars(!cars)} />
           <label className="form-check-label" htmlFor='cars' >Samochody</label>
         </div>
       </section>
       <section className='d-flex gap-2 flex-wrap'>
         {imagesList.map((image) => (
+          ((image.category === 1 && flowers) ||
+            (image.category === 2 && animals) ||
+            (image.category === 3 && cars))
+          &&
           <div key={image.id}>
             <img src={'assets/' + image.filename} alt={image.alt} style={{
               margin: '5px',
               borderRadius: '5px',
             }} />
             <h4>Pobrań: {image.downloads}</h4>
-            <button className='btn btn-success' >Pobierz</button>
+            <button className='btn btn-success'
+              onClick={() => handleClick(image.id)}
+            >Pobierz</button>
           </div>
-
         ))}
-      </section>
+      </section >
     </>
   )
 }
