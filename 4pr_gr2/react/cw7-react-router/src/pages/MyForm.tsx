@@ -1,12 +1,32 @@
-import React from "react";
+import { useState } from "react";
+interface Person {
+  firstname: string;
+  lastname: string;
+  age: number;
+  dateOfBirth: string;
+  education: string;
+}
+const MyForm = () => {
+  const handleSubmit = (formData: FormData) => {
+    console.log(formData);
+    const person: Person = {
+      firstname: formData.get("firstname") as string,
+      lastname: formData.get("lastname") as string,
+      age: Number(formData.get("age")),
+      dateOfBirth: formData.get("dateOfBirth") as string,
+      education: formData.get("education") as string,
+    }
+    setPerson(person);
 
-type Props = {};
+  };
 
-const MyForm = (props: Props) => {
+  const [person, setPerson] = useState<Person | undefined>(undefined);
+
   return (
     <div>
       <h2 className="text-center">Formularz z obsługą React_v19</h2>
-      <form action="">
+      <pre>{person && JSON.stringify(person, null, 2)}</pre>
+      <form action={handleSubmit}>
         <div className="row m-2">
           <label className="col-3 text-end" htmlFor="firstname">
             Podaj imię:
@@ -29,6 +49,12 @@ const MyForm = (props: Props) => {
             Podaj wiek:
           </label>
           <input className="col-6" type="number" id="age" name="age" />
+        </div>
+        <div className="row m-2">
+          <label className="col-3 text-end" htmlFor="dateOfBirth">
+            Podaj datę urodzenia:
+          </label>
+          <input className="col-6" type="date" id="dateOfBirth" name="dateOfBirth" />
         </div>
         <div className="row m-2">
           <label className="col-3 text-end" htmlFor="education">

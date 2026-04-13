@@ -2,7 +2,7 @@ import { NavLink, Outlet } from "react-router";
 
 const Layout = () => {
   return (
-    <div>
+    <div style={{ position: "relative" , minHeight: "100vh", paddingBottom: "3rem" }}>
       <header>
         <nav className="d-flex gap-4 bg-light p-3">
           <NavLink className="myNav-link" to="/">
