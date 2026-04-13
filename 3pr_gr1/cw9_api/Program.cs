@@ -6,9 +6,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IRepoSql, RepoSql>();
 
 //builder.Services.AddSingleton<IRepoSql, RepoSql>();
-
+//uzycier CORS
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 var app = builder.Build();
-
+app.UseCors();
 app.MapGet("/", () => "Hello World!");
 app.MapGet("/api/", () =>
      new { Name = "John Doe", Age = 30, Date = DateTime.Now });
