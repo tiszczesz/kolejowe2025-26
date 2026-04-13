@@ -99,6 +99,18 @@ public class RepoSql : IRepoSql
 
     public void UpdateStudent(Student student)
     {
-        throw new NotImplementedException();
+        using var connection = new SqliteConnection(_connectionString);
+        using var command = connection.CreateCommand();
+        command.CommandText = @"UPDATE Students SET Firstname = @firstname, Lastname = @lastname, 
+                                    AVG_Grade = @avg_grade, Departament_id = @departament_id
+                                    WHERE Id = @id";
+        command.Parameters.AddWithValue("@id", student.Id);
+        command.Parameters.AddWithValue("@firstname", student.Firstname);
+        command.Parameters.AddWithValue("@lastname", student.Lastname);
+        command.Parameters.AddWithValue("@avg_grade", student.AVG_Grade);
+        command.Parameters.AddWithValue("@departament_id", student.Departament_id);
+        connection.Open();
+        command.ExecuteNonQuery();
+        connection.Close();
     }
 }
