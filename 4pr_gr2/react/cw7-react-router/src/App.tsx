@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import PageNotFound from "./pages/PageNotFound";
 import MyForm from "./pages/MyForm";
+import ImagesPage from "./pages/ImagesPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
       { path: "about", element: <About /> },
       { path: "myform", element: <MyForm /> },
       { path: "contact", element: <Contact /> },
+      { path: "images", element: <ImagesPage /> },
       { path: "*", element: <PageNotFound /> },
     ],
   },

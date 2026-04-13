@@ -17,6 +17,9 @@ const Layout = () => {
           <NavLink className="myNav-link" to="/myform">
             Formularz 1
           </NavLink>
+          <NavLink className="myNav-link" to="/images">
+            Obrazy
+          </NavLink>
         </nav>
       </header>
       <main>
