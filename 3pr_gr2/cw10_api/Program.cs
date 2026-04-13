@@ -4,7 +4,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IRepoSqlite, RepoSqlite>();
 // builder.Services.AddTransient<IRepoSqlite, RepoSqlite>();
 // builder.Services.AddSingleton<IRepoSqlite, RepoSqlite>();
+
+//obsługa CORS pełna dowolność, do testów z JS w przeglądarce
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 var app = builder.Build();
+app.UseCors();
 
 app.MapGet("/", () => "Hello World!");
 app.MapGet("/api", () => new { Message = "Hello from the API!", Date = DateTime.Now });
