@@ -25,6 +25,12 @@ function Layout() {
           <NavLink className="nav-link" to="/galeria">
             Galeria zdjęć
           </NavLink>
+           <NavLink className="nav-link" to="/galeria">
+            Galeria zdjęć
+          </NavLink>
+          <NavLink className="nav-link" to="/dishes">
+            Posiłki
+          </NavLink>
         </nav>
       </header>
       <main className="container mt-3">
