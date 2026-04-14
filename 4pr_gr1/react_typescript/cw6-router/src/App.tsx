@@ -9,6 +9,7 @@ import PageNotFound from "./pages/PageNotFound";
 import MyForm1 from "./pages/MyForm1";
 import FotoGallery from "./pages/FotoGallery";
 import Listdishes from "./pages/Listdishes";
+import TimerPage from "./pages/TimerPage";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
       { path: "form1", element: <MyForm1 /> },
       { path: "galeria", element: <FotoGallery /> },
       { path: "dishes", element: <Listdishes /> },
+      {path: "timer", element: <TimerPage />},
       { path: "*", element: <PageNotFound /> },
     ],
   },

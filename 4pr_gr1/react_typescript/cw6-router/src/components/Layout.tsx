@@ -27,6 +27,9 @@ function Layout() {
           <NavLink className="nav-link" to="/dishes">
             Posiłki
           </NavLink>
+          <NavLink className="nav-link" to="/timer">
+            Timer
+          </NavLink>
         </nav>
       </header>
       <main className="container mt-3">
