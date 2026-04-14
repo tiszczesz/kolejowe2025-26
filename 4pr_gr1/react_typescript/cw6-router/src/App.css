@@ -7,3 +7,16 @@
   color: gray;
   text-decoration: underline;
 }
+a.active {
+  font-weight: bold;
+  color: grey;
+}
+
+.myNav-link{
+    font-size: 2em;
+    text-decoration: none;
+    color: black;
+}
+.myNav-link:hover{
+    text-decoration: underline;
+}  

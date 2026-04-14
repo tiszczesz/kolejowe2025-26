@@ -9,7 +9,7 @@ const Listdishes = () => {
     );
     setDishesList(newList);
   }
-
+  console.log(dishesList);
   return (
     <div>
       <h1>Lista posiłków</h1>
@@ -38,7 +38,7 @@ const Listdishes = () => {
               <section
                 style={{
                   marginLeft: "20px",
-                  width: "20px",
+                  width: "10px",
                   backgroundColor: "green",
                   height: `${dish.likes}px`,
                 }}
