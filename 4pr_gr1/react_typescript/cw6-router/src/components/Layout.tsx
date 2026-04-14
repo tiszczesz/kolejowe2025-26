@@ -1,7 +1,5 @@
 import { NavLink, Outlet } from "react-router";
 
-
-
 function Layout() {
   return (
     <>
@@ -25,9 +23,7 @@ function Layout() {
           <NavLink className="nav-link" to="/galeria">
             Galeria zdjęć
           </NavLink>
-           <NavLink className="nav-link" to="/galeria">
-            Galeria zdjęć
-          </NavLink>
+
           <NavLink className="nav-link" to="/dishes">
             Posiłki
           </NavLink>
