@@ -20,8 +20,11 @@ function Layout() {
           <NavLink className="nav-link" to="/form1">
             Formularz 1
           </NavLink>
-           <NavLink className="nav-link" to="/form2">
+          <NavLink className="nav-link" to="/form2">
             Formularz 2
+          </NavLink>
+          <NavLink className="nav-link" to="/form3">
+            Formularz 3
           </NavLink>
           <NavLink className="nav-link" to="/galeria">
             Galeria zdjęć

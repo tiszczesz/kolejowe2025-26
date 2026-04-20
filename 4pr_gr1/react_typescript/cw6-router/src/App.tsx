@@ -11,6 +11,7 @@ import FotoGallery from "./pages/FotoGallery";
 import Listdishes from "./pages/Listdishes";
 import TimerPage from "./pages/TimerPage";
 import MyForm2 from "./pages/MyForm2";
+import MyForm3 from "./pages/MyForm3";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
       { path: "contact", element: <Contact /> },
       { path: "form1", element: <MyForm1 /> },
       { path: "form2", element: <MyForm2 /> },
+      { path: "form3", element: <MyForm3 /> },
       { path: "galeria", element: <FotoGallery /> },
       { path: "dishes", element: <Listdishes /> },
       {path: "timer", element: <TimerPage />},
