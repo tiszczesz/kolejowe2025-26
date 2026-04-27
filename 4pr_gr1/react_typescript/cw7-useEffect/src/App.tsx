@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import { useEffect, useRef, useState } from 'react'
+import ClockTimer from './components/ClockTimer';
 
 function App() {
   //głóna częśc komponentu
@@ -23,6 +24,8 @@ function App() {
         <input ref={inputRef} type="text" value={info}
           onChange={(e) => setInfo(e.target.value)} />
         <span>{info}</span>
+        <hr />
+        <ClockTimer />
       </main>
     </>
   )
