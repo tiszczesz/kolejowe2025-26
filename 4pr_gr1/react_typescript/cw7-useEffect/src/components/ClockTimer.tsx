@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 const ClockTimer = () => {
+    console.log('render ClockTimer');
     const [time, setTime] = useState(new Date().toLocaleTimeString());
     useEffect(() => {
         const timer = setInterval(() => {
