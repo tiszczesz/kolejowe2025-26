@@ -1,5 +1,14 @@
+import { useEffect, useState } from "react";
 
 const ClockTimer = () => {
+    const [time, setTime] = useState(new Date().toLocaleTimeString());
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setTime(new Date().toLocaleTimeString());
+        }, 1000);
+        return () => clearInterval(timer);
+    }, []);
+
     return (
         <div className="border p-2" style={{
             margin: '20px auto',
@@ -13,7 +22,7 @@ const ClockTimer = () => {
             alignItems: 'center',
             backgroundColor: '#f8f9fa',
             fontSize: '3rem',
-        }}>ClockTimer</div>
+        }}>{time}</div>
     )
 }
 
