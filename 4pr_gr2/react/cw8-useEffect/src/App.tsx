@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import { useEffect, useState, useRef } from 'react'
+import Clock from './components/Clock'
 
 function App() {
   const [info, setInfo] = useState('')
@@ -11,7 +12,7 @@ function App() {
     console.log('wykonuje się useEffect')
     if (refInput.current) {
       refInput.current.focus()
-      
+
     }
   }, [info]) //tablica zależności, jeśli info się zmieni to useEffect się wykona;
   return (
@@ -22,6 +23,8 @@ function App() {
         <input ref={refInput} type="text" onChange={(e) => setInfo(e.target.value)} value={info} />
         <span>{info}</span>
       </section>
+      <hr />
+      <Clock />
     </main>
   )
 }
