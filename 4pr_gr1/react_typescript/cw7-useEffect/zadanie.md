@@ -1,5 +1,6 @@
 ## Zadanie
 Dodaj komponennt Timer, który będzie można za pomocą przycisków"
+Użycie useEffect!!!
 1. Zastartować
 2. Wstrzymać
 3. Zrestartować
